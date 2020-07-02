@@ -1,0 +1,72 @@
+ext{
+    applicationId = "com.good.job"
+
+    //是否混淆
+    MinifyEnabled = false
+
+    // App dependencies
+   /* appcompatVersion = "28.0.0"
+    constraintVersion = "1.1.3"
+    junitVersion = "4.12"
+    runnerVersion = "1.0.2"
+    espressoVersion = "3.0.2"
+    supportV4Version = "26.1.0"
+    designVersion = "28.0.0"*/
+
+    android=[
+            compileSdkVersion :    29,//编译的SDK版本
+            buildToolsVersion :    "29.0.3",//Gradle编译项目的工具版本
+            minSdkVersion     :    23,// 最低支持Android版本
+            targetSdkVersion  :    29,// 目标版本
+            versionCode       :    1,//版本号
+            versionName       :    "1.0",//版本名
+            kotlin_version    :    '1.3.30'
+    ]
+
+    versions=[
+            "converter_gson"             :    "2.1.0",
+            "logging_interceptor"        :    "3.2.0",
+            "okhttp"                     :    "3.7.0",
+            "retrofit"                   :    "2.1.0",
+            "gson"                       :    "2.8.2",
+            "okio"                       :    "1.13.0",
+            "okrx2"                      :    "2.0.2",
+            "rxandroid"                  :    "2.0.1",
+            "adapter_rxjava2"            :    "2.2.0",
+            "compressor"                 :    "2.1.0",
+            "Luban"                      :    "1.1.3",
+            "greendao"                   :    "3.2.2",
+            "greendao_generator"         :    "3.2.2",
+            "multidex"                   :    "1.0.1",
+            "systembartint"              :    "1.0.3",
+            "bga_banner"                 :    "2.2.6@aar",
+            "ucrop"                      :    "1.4.1",
+            "autodispose_archcomponents" :    "1.0.0-RC2",
+            "easypermissions"            :    "3.0.0",
+            "arouter"                    :    "1.3.0",
+    ]
+
+    dependencies = [
+            "converter_gson"             :    "com.squareup.retrofit2:converter-gson:${versions.converter_gson}",
+            "logging_interceptor"        :    "com.squareup.okhttp3:logging-interceptor:${versions.logging_interceptor}",
+            "okhttp"                     :    "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+            "retrofit"                   :    "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            "gson"                       :    "com.google.code.gson:gson:${versions.gson}",
+            "okio"                       :    "com.squareup.okhttp3:okhttp:${versions.okio}",
+            "okrx2"                      :    "com.lzy.net:okrx2:${versions.okrx2}",
+            "rxandroid"                  :    "io.reactivex.rxjava2:rxandroid:${versions.rxandroid}",
+            "adapter_rxjava2"            :    "com.squareup.retrofit2:adapter-rxjava2:${versions.adapter_rxjava2}",
+            "compressor"                 :    "id.zelory:compressor:${versions.compressor}",
+            "Luban"                      :    "top.zibin:Luban:${versions.Luban}",
+            "greendao"                   :    "org.greenrobot:greendao:${versions.greendao}",
+            "greendao_generator"         :    "org.greenrobot:greendao-generator:${versions.greendao_generator}",
+            "multidex"                   :    "com.android.support:multidex:${versions.multidex}",
+            "systembartint"              :    "com.readystatesoftware.systembartint:systembartint:${versions.systembartint}",
+            "bga_banner"                 :    "cn.bingoogolapple:bga-banner:${versions.bga_banner}",
+            "ucrop"                      :    "com.yalantis:ucrop:${versions.ucrop}",
+            "autodispose_archcomponents" :    "com.uber.autodispose:autodispose-android-archcomponents:${versions.autodispose_archcomponents}",
+            "easypermissions"            :    "pub.devrel:easypermissions:${versions.easypermissions}",
+            "arouter"                    :    "com.alibaba:arouter-api:${versions.arouter}",
+    ]
+
+}

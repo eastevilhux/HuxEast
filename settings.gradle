@@ -1,0 +1,4 @@
+include ':lib-uikit'
+include ':lib-framework'
+include ':app'
+rootProject.name = "HuxEast"
