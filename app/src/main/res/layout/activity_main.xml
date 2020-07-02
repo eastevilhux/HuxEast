@@ -8,14 +8,30 @@
         android:layout_height="match_parent"
         tools:context=".models.main.MainActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
+
+        <com.god.uikit.widget.BottomLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/appButtonHeight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:itemNumbers="4"
+            app:iconSrc_nor_1="@drawable/icon_home_home_nor"
+            app:iconSrc_nor_2="@drawable/icon_home_commlist_nor"
+            app:iconSrc_nor_3="@drawable/icon_home_auction_nor"
+            app:iconSrc_nor_4="@drawable/icon_home_user_nor"
+            app:iconSrc_sel_1="@drawable/icon_home_home_sel"
+            app:iconSrc_sel_2="@drawable/icon_home_commlist_sel"
+            app:iconSrc_sel_3="@drawable/icon_home_auction_sel"
+            app:iconSrc_sel_4="@drawable/icon_home_user_sel"
+            app:haveLine="true"
+            app:itemText_1="@string/home_home"
+            app:itemText_2="@string/home_commlist"
+            app:itemText_3="@string/home_auctoin"
+            app:itemText_4="@string/home_user"
+            app:selTextColor="@color/colorMainTheme"
+            app:norTextColor="@color/colorApp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

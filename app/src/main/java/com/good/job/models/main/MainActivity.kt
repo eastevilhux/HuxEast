@@ -11,13 +11,14 @@ import com.good.job.viewmodels.main.MainViewModel
 
 @Route(path = Constants.MAIN)
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
-    override fun getLayoutRes(): Int = R.layout.activity_splash
+    override fun getLayoutRes(): Int = R.layout.activity_main
 
     override fun getVMClass(): Class<MainViewModel> {
         return MainViewModel::class.java;
     }
 
     override fun initView() {
+
     }
 
 }

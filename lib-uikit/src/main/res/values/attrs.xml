@@ -1,0 +1,169 @@
+<resources>
+
+    <attr name="itemText" format="string"/>
+    <attr name="contextText" format="string"/>
+    <attr name="itemTextColor" format="color"/>
+    <attr name="contextTextColor" format="color"/>
+    <attr name="isShowArrow" format="boolean"></attr>
+    <attr name="iconSrc" format="reference"></attr>
+    <attr name="isHaveIcon" format="boolean"></attr>
+    <attr name="isPassword" format="boolean"></attr>
+    <attr name="haveMenu" format="boolean"></attr>
+    <attr name="menuText" format="string"></attr>
+    <attr name="arrow_image" format="reference"></attr>
+    <attr name="contentText" format="string"></attr>
+    <attr name="haveItem" format="boolean"></attr>
+    <attr name="haveItemImage" format="boolean"></attr>
+    <attr name="haveArrow" format="boolean"></attr>
+    <attr name="item_image" format="reference"></attr>
+    <attr name="haveContent" format="boolean"></attr>
+    <attr name="menuImage" format="reference"></attr>
+    <attr name="menuTextColor" format="color"></attr>
+    <attr name="haveLine" format="boolean"></attr>
+    <attr name="lineColor" format="color"></attr>
+
+    <declare-styleable name="BottomLayout">
+        <attr name="haveLine"/>
+        <attr name="lineColor"/>
+        <attr name="itemNumbers" format="integer"></attr>
+        <attr name="norTextColor" format="color"></attr>
+        <attr name="selTextColor" format="color"></attr>
+        <attr name="itemText_1" format="string"></attr>
+        <attr name="itemText_2" format="string"></attr>
+        <attr name="itemText_3" format="string"></attr>
+        <attr name="itemText_4" format="string"></attr>
+        <attr name="itemText_5" format="string"></attr>
+        <attr name="iconSrc_sel_1" format="reference"></attr>
+        <attr name="iconSrc_sel_2" format="reference"></attr>
+        <attr name="iconSrc_sel_3" format="reference"></attr>
+        <attr name="iconSrc_sel_4" format="reference"></attr>
+        <attr name="iconSrc_sel_5" format="reference"></attr>
+        <attr name="iconSrc_nor_1" format="reference"></attr>
+        <attr name="iconSrc_nor_2" format="reference"></attr>
+        <attr name="iconSrc_nor_3" format="reference"></attr>
+        <attr name="iconSrc_nor_4" format="reference"></attr>
+        <attr name="iconSrc_nor_5" format="reference"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="TitleLayout">
+        <attr name="titleTextColor" format="color"></attr>
+        <attr name="backTextColor" format="color"></attr>
+        <attr name="menuTextColor"></attr>
+        <attr name="titleText" format="string"></attr>
+        <attr name="menuImage" ></attr>
+        <attr name="backText" format="string"></attr>
+        <attr name="menuText"/>>
+        <attr name="menuType" format="enum">
+            <enum name="nomeun" value="0" ></enum>
+            <enum name="menu_text" value="1"></enum>
+            <enum name="menu_image" value="2"></enum>
+        </attr>
+        <attr name="iconBack" format="reference"></attr>
+        <attr name="iconBackType" format="enum">
+            <enum name="none" value="0"></enum>
+            <enum name="square" value="1"></enum>
+            <enum name="rectangle" value="2"></enum>
+        </attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="CountdownButton">
+        <attr name="countDownMillis" format="integer"></attr>
+        <attr name="status" format="enum">
+            <enum name="start" value="1"></enum>
+            <enum name="stop" value="2"></enum>
+        </attr>
+        <attr name="usableColor" format="color"></attr>
+        <attr name="unusableColor" format="color"></attr>
+    </declare-styleable>
+
+
+    <declare-styleable name="IconTextLayout">
+        <attr name="itemText"/>
+        <attr name="contextText"/>
+        <attr name="itemTextColor"/>
+        <attr name="contextTextColor"/>
+        <attr name="isShowArrow"/>
+        <attr name="iconSrc"/>
+        <attr name="isHaveIcon"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="InputLayout">
+        <attr name="hintText" format="string"></attr>
+        <attr name="haveLine"></attr>
+        <attr name="inputTextColor" format="color"></attr>
+        <attr name="hintColor" format="color"></attr>
+        <attr name="lineColor"></attr>
+        <attr name="haveMenu"></attr>
+        <attr name="menuBackground" format="reference"></attr>
+        <attr name="itemText"></attr>
+        <attr name="itemTextColor"></attr>
+        <attr name="itemMenuText" format="string"/>
+        <attr name="menuTextColor"></attr>
+        <attr name="inputType" format="enum">
+            <enum name="default_type" value="0"></enum>
+            <enum name="mobile" value="1"></enum>
+            <enum name="number" value="2"></enum>
+            <enum name="password" value="3"></enum>
+            <enum name="numberPassword" value="4"></enum>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ExhibitionLayout">
+        <attr name="haveImage" format="boolean"></attr>
+        <attr name="contentText"></attr>
+        <attr name="haveItem"></attr>
+        <attr name="haveItemImage"></attr>
+        <attr name="haveArrow"></attr>
+        <attr name="exhibition_image" format="reference"></attr>
+        <attr name="item_image"></attr>
+        <attr name="arrow_image"></attr>
+        <attr name="haveMenu"></attr>
+        <attr name="itemText"></attr>
+        <attr name="menuText"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="SelectitemLayout">
+        <attr name="haveItemImage"></attr>
+        <attr name="item_image"></attr>
+        <attr name="haveItem"></attr>
+        <attr name="itemText"></attr>
+        <attr name="arrow_image"></attr>
+        <attr name="haveArrow"></attr>
+        <attr name="haveContent"></attr>
+        <attr name="contentText"></attr>
+        <attr name="itemTextColor"></attr>
+        <attr name="contentTextColor" format="color"></attr>
+        <attr name="content_gravity" format="enum">
+            <enum name="leftAndCenter_vertical" value="1"></enum>
+            <enum name="center" value="2"></enum>
+            <enum name="rightAndCenter_vertical" value="3"></enum>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SearchLayout">
+        <attr name="haveMenu"></attr>
+        <attr name="haveArrow"></attr>
+        <attr name="arrow_image"></attr>
+        <attr name="hintText"></attr>
+        <attr name="menuText"></attr>
+        <attr name="menuImage"></attr>
+        <attr name="haveMenuLine" format="boolean"></attr>
+        <attr name="haveMenuImage" format="boolean"></attr>
+        <attr name="haveCondition" format="boolean"></attr>
+        <attr name="haveConditionLine" format="boolean"></attr>
+        <attr name="conditionText" format="string"></attr>
+        <attr name="menuTextColor"></attr>
+        <attr name="conditionTextColor" format="color"></attr>
+        <attr name="menuLineColor" format="color"></attr>
+        <attr name="conditionLineColor" format="color"></attr>
+        <attr name="searchBackgroundColor" format="reference"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="TopdownLayout">
+        <attr name="iconSrc"></attr>
+        <attr name="itemText"></attr>
+        <attr name="imageSize" format="integer"></attr>
+        <attr name="itemTextColor"></attr>
+    </declare-styleable>
+</resources>

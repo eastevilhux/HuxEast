@@ -1,7 +1,7 @@
 package com.good.job.viewmodels
 
 import android.app.Application
-import android.util.Log
+import android.os.Handler
 import com.good.framework.commons.BaseViewModel
 import com.good.framework.entity.VMData
 import com.good.job.commons.EastViewModel
@@ -17,5 +17,10 @@ class SplashViewModel(application: Application) : EastViewModel<SplashData>(appl
 
     override fun initModel() {
         super.initModel()
+
+        Handler().postDelayed(Runnable {
+            getData()!!.code = VMData.Code.CODE_SUCCESS;
+            postValue(getData()!!);
+        },3000);
     }
 }

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="height_1">1dp</dimen>
+    <dimen name="height_10">10dp</dimen>
+    <dimen name="height_30">30dp</dimen>
+    <dimen name="height_38">38dp</dimen>
+    <dimen name="height_40">40dp</dimen>
+    <dimen name="height_50">50dp</dimen>
+    <dimen name="height_60">60dp</dimen>
+    <dimen name="height_70">70dp</dimen>
+
+    <dimen name="width_50">50dp</dimen>
+    <dimen name="width_60">60dp</dimen>
+    <dimen name="width_70">70dp</dimen>
+    <dimen name="width_80">80dp</dimen>
+
+    <dimen name="size_5">5dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_10">10dp</dimen>
+    <dimen name="size_15">15dp</dimen>
+    <dimen name="size_18">18dp</dimen>
+    <dimen name="size_20">20dp</dimen>
+    <dimen name="size_25">25dp</dimen>
+    <dimen name="size_30">30dp</dimen>
+    <dimen name="size_35">35dp</dimen>
+    <dimen name="size_40">40dp</dimen>
+    <dimen name="size_50">50dp</dimen>
+
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_13">13sp</dimen>
+    <dimen name="sp_15">15sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
+    <dimen name="sp_17">17sp</dimen>
+    <dimen name="sp_18">18sp</dimen>
+    <dimen name="sp_20">20sp</dimen>
+    <dimen name="sp_25">25sp</dimen>
+    <dimen name="sp_28">28sp</dimen>
+
+    <dimen name="line_1">1dp</dimen>
+    <dimen name="line_2">2dp</dimen>
+    <dimen name="line_3">3dp</dimen>
+    <dimen name="line_5">5dp</dimen>
+
+    <dimen name="padding3">3dp</dimen>
+    <dimen name="padding5">5dp</dimen>
+    <dimen name="padding7">7dp</dimen>
+    <dimen name="padding8">8dp</dimen>
+    <dimen name="padding10">10dp</dimen>
+    <dimen name="padding15">15dp</dimen>
+    <dimen name="padding20">20dp</dimen>
+    <dimen name="paddingLeft5">5dp</dimen>
+    <dimen name="paddingRight5">5dp</dimen>
+    <dimen name="paddingLeft10">10dp</dimen>
+    <dimen name="paddingRight10">10dp</dimen>
+    <dimen name="paddingLeft15">15dp</dimen>
+    <dimen name="paddingRight15">15dp</dimen>
+    <dimen name="padding18">18dp</dimen>
+    <dimen name="paddingLeft30">30dp</dimen>
+    <dimen name="paddingLeft40">40</dimen>
+    <dimen name="paddingRight30">30dp</dimen>
+
+    <dimen name="margin3">3dp</dimen>
+    <dimen name="margin5">5dp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="margin7">7dp</dimen>
+    <dimen name="margin10">10dp</dimen>
+    <dimen name="margin15">15dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin25">25dp</dimen>
+    <dimen name="margin30">30dp</dimen>
+    <dimen name="margin35">35dp</dimen>
+    <dimen name="margin50">50dp</dimen>
+    <dimen name="margin60">60dp</dimen>
+    <dimen name="margin70">70dp</dimen>
+    <dimen name="margin80">80dp</dimen>
+
+
+    <dimen name="bottom_height">@dimen/height_50</dimen>
+    <dimen name="bottom_img_size">@dimen/size_30</dimen>
+    <dimen name="appTextSize">@dimen/sp_13</dimen>
+    <dimen name="appTitleHeight">40dp</dimen>
+    <dimen name="InputMenuTextWidth">80dp</dimen>
+    <dimen name="lineHeight">1dp</dimen>
+    <dimen name="appButtonHeight">45dp</dimen>
+    <dimen name="appDialogButtonWidth">50dp</dimen>
+    <dimen name="appItemHeight">50dp</dimen>
+    <dimen name="exhibit_img_size">30dp</dimen>
+    <dimen name="exhibit_text_size">11sp</dimen>
+    <dimen name="appArrowImgSize">15dp</dimen>
+    <dimen name="arrowImgSize">35dp</dimen>
+    <dimen name="arrowPadding">10dp</dimen>
+    <dimen name="margin2">2dp</dimen>
+    <dimen name="listItemImageSize">30dp</dimen>
+    <dimen name="listItemHeight">40dp</dimen>
+    <dimen name="calendarTitleHeight">40dp</dimen>
+    <dimen name="datetimePickerHeight">120dp</dimen>
+    <dimen name="selImageSize">20dp</dimen>
+    <dimen name="datetimeWheelviewHeight">80dp</dimen>
+    <dimen name="colonWidth">2dp</dimen>
+    <dimen name="calendarEnterBtnWidth">50dp</dimen>
+    <dimen name="calendarEnterBtnHeight">30dp</dimen>
+    <dimen name="inputItemWidth">70dp</dimen>
+    <dimen name="payImageSize">40dp</dimen>
+    <dimen name="payTitleHeight">40dp</dimen>
+    <dimen name="cityNameHeight">30dp</dimen>
+    <dimen name="crossImageSzie">40dp</dimen>
+    <dimen name="itemEnterWidth">50dp</dimen>
+    <dimen name="itemEnterHeight">30dp</dimen>
+    <dimen name="selectImgSize">60dp</dimen>
+    <dimen name="selectImgWidth">80dp</dimen>
+    <dimen name="selectImgHeight">60dp</dimen>
+    <dimen name="SearchMenuImageSize">30dp</dimen>
+    <dimen name="searchEdithHeight">30dp</dimen>
+    <dimen name="editMinHeight">60dp</dimen>
+</resources>

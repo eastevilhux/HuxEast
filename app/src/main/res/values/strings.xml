@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HuxEast</string>
+    <string name="home_home">首页</string>
+    <string name="home_commlist">发现</string>
+    <string name="home_auctoin">拍卖</string>
+    <string name="home_user">我的</string>
 </resources>

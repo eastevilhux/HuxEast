@@ -1,0 +1,45 @@
+<resources>
+
+    <style name="BaseTextTheme">
+        <item name="android:textSize">@dimen/appTextSize</item>
+        <item name="android:textColor">@color/colorApp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">false</item>
+        <!-- 背景模糊 -->
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 允许对话框的背景变暗 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <style name="LineVerticalTheme">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="background">@color/colorLineinWhite</item>
+    </style>
+
+    <style name="LineHorizontalTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="background">@color/colorLineinWhite</item>
+    </style>
+
+    <style name="BaseEditTheme">
+        <item name="android:textSize">@dimen/appTextSize</item>
+        <item name="android:textColor">@color/colorApp</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="android:gravity">left|center_vertical</item>
+    </style>
+</resources>

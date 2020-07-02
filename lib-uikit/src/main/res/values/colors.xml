@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorApp">#373737</color>
+    <color name="colorItemText">#969696</color>
+
+    <color name="colorHint">#C8C8C8</color>
+    <color name="colorInfo">@color/colorItemText</color>
+    <color name="colorWhite">@android:color/white</color>
+    <color name="colorBlack">@android:color/black</color>
+    <color name="colorLine">#B4B4B4</color>
+    <color name="colorMainBg">#F0F0F0</color>
+    <color name="colorCalendarSel">#50CDDC</color>
+
+    <color name="ColorBtnSel">#FF4B46</color>
+    <color name="ColorBtnNor">#FF5A5F</color>
+    <color name="colorLineinWhite">#B4B4B4</color>
+    <color name="colorLineLight">#E6E6E6</color>
+
+</resources>

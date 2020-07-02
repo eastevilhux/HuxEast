@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="itemNumbers"
+            type="androidx.databinding.ObservableField&lt;Integer&gt;"/>
+
+        <variable
+            name="selTextColor"
+            type="int"/>
+
+        <variable
+            name="norTextColor"
+            type="int"/>
+
+        <variable
+            name="itemIndex"
+            type="androidx.databinding.ObservableField&lt;Integer&gt;"/>
+
+        <variable
+            name="imageMap"
+            type="androidx.databinding.ObservableMap&lt;String,android.graphics.drawable.Drawable&gt;"/>
+
+        <variable
+            name="textMap"
+            type="androidx.databinding.ObservableMap&lt;String,String&gt;"/>
+
+        <variable
+            name="bottomLayout"
+            type="com.god.uikit.widget.BottomLayout"/>
+
+        <variable
+            name="haveLine"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/line_view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:visibility="@{haveLine ? View.VISIBLE : View.GONE}"/>
+
+        <LinearLayout
+            android:id="@+id/bottom_linarlayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/height_1">
+
+            <LinearLayout
+                android:id="@+id/item_layout_1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:onClick="@{bottomLayout.onBottomClick}">
+
+
+                <ImageView
+                    android:id="@+id/bottom_img_1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src='@{itemIndex == 1 ? imageMap["icon1sel"] : imageMap["icon1nor"]}'/>
+
+                <TextView
+                    android:id="@+id/bottom_text_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseTextTheme"
+                    android:text='@{textMap["text1"]}'
+                    android:textColor="@{itemIndex == 1 ? selTextColor : norTextColor}"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/item_layout_2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:onClick="@{bottomLayout.onBottomClick}">
+
+
+                <ImageView
+                    android:id="@+id/bottom_img_2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src='@{itemIndex == 2 ? imageMap["icon2sel"] : imageMap["icon2nor"]}'/>
+
+                <TextView
+                    android:id="@+id/bottom_text_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseTextTheme"
+                    android:text='@{textMap["text2"]}'
+                    android:textColor="@{itemIndex == 2 ? selTextColor : norTextColor}"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/item_layout_3"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:onClick="@{bottomLayout.onBottomClick}">
+
+
+                <ImageView
+                    android:id="@+id/bottom_img_3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src='@{itemIndex == 3 ? imageMap["icon3sel"] : imageMap["icon3nor"]}'/>
+
+                <TextView
+                    android:id="@+id/bottom_text_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseTextTheme"
+                    android:text='@{textMap["text3"]}'
+                    android:textColor="@{itemIndex == 3 ? selTextColor : norTextColor}"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/item_layout_4"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{itemNumbers == 4 ? View.VISIBLE : View.GONE}"
+                android:onClick="@{bottomLayout.onBottomClick}">
+
+
+                <ImageView
+                    android:id="@+id/bottom_img_4"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src='@{itemIndex == 4 ? imageMap["icon4sel"] : imageMap["icon4nor"]}'/>
+
+                <TextView
+                    android:id="@+id/bottom_text_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseTextTheme"
+                    android:text='@{textMap["text4"]}'
+                    android:textColor="@{itemIndex == 4 ? selTextColor : norTextColor}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/item_layout_5"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="@{itemNumbers == 5 ? View.VISIBLE : View.GONE}"
+                android:onClick="@{bottomLayout.onBottomClick}">
+
+
+                <ImageView
+                    android:id="@+id/bottom_img_5"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src='@{itemIndex ==5 ? imageMap["icon5sel"] : imageMap["icon5nor"]}'/>
+
+                <TextView
+                    android:id="@+id/bottom_text_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseTextTheme"
+                    android:text='@{textMap["text4"]}'
+                    android:textColor="@{itemIndex == 5 ? selTextColor : norTextColor}"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

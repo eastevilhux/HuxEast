@@ -1,4 +1,4 @@
-package com.good.uikit
+package com.god.uikit
 
 import org.junit.Test
 
