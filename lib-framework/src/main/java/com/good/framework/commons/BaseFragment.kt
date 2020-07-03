@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
 abstract open class BaseFragment<D : ViewDataBinding,V : BaseViewModel> : Fragment() {
-    var viewModel : V = TODO();
-    var dataBinding : D;
+    lateinit var viewModel : V;
+    lateinit var dataBinding : D;
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,6 +25,10 @@ abstract open class BaseFragment<D : ViewDataBinding,V : BaseViewModel> : Fragme
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         var vp = ViewModelProvider(this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(activity!!.application));
@@ -32,10 +36,7 @@ abstract open class BaseFragment<D : ViewDataBinding,V : BaseViewModel> : Fragme
         viewModel.setLifecycleOwner(this);
         lifecycle.addObserver(viewModel);
         dataBinding.lifecycleOwner = this;
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         viewModel.initOnFragmentActivityCreate();
     }
 

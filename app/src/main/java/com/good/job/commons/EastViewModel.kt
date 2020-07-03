@@ -32,5 +32,4 @@ abstract open class EastViewModel<VM : VMData>(application: Application) : BaseV
     fun postValue(vmData: VM){
         data.value = vmData;
     }
-
 }

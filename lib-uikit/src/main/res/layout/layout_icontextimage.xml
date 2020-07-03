@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="haveIcon"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+        
+        <variable
+            name="haveTitle"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="haveSubtitle"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="titleText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="subTitle"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="haveArrow"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="haveContent"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="contentText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/src_imageview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="@{haveIcon ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/src_imageview"
+            android:visibility="@{!haveTitle &amp;&amp; !haveSubtitle ? View.GONE : View.VISIBLE}">
+            
+            <TextView
+                android:id="@+id/title_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BaseTextTheme"
+                android:text="@{titleText}"
+                android:visibility="@{haveTitle ? View.VISIBLE : View.GONE}"/>
+
+            <TextView
+                android:id="@+id/subtitle_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BaseTextTheme"
+                android:text="@{subTitle}"
+                android:visibility="@{haveSubtitle ? View.VISIBLE : View.GONE}"/>
+            
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/arrow_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="@dimen/margin10"
+            android:visibility="@{haveArrow ? View.VISIBLE : View.GONE}"/>
+
+
+        <TextView
+            android:id="@+id/content_textview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/title_layout"
+            app:layout_constraintEnd_toStartOf="@id/arrow_imageview"
+            android:visibility="@{haveContent ? View.VISIBLE : View.GONE}"
+            style="@style/BaseTextTheme"
+            android:text="@{contentText}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

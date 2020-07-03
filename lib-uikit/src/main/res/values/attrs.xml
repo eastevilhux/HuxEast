@@ -21,6 +21,16 @@
     <attr name="menuTextColor" format="color"></attr>
     <attr name="haveLine" format="boolean"></attr>
     <attr name="lineColor" format="color"></attr>
+    <attr name="titleText" format="string"></attr>
+    <attr name="title_text" format="string"></attr>
+    <attr name="subtitle_text" format="string"></attr>
+    <attr name="title_color" format="color"></attr>
+    <attr name="subtitle_color" format="color"></attr>
+    <attr name="content_color" format="color"></attr>
+    <attr name="image_src" format="reference"></attr>
+    <attr name="icon_src" format="reference"></attr>
+    <attr name="arrow_src" format="reference"></attr>
+    <attr name="have_arrow" format="boolean"></attr>
 
     <declare-styleable name="BottomLayout">
         <attr name="haveLine"/>
@@ -49,7 +59,7 @@
         <attr name="titleTextColor" format="color"></attr>
         <attr name="backTextColor" format="color"></attr>
         <attr name="menuTextColor"></attr>
-        <attr name="titleText" format="string"></attr>
+        <attr name="titleText"/>
         <attr name="menuImage" ></attr>
         <attr name="backText" format="string"></attr>
         <attr name="menuText"/>>
@@ -165,5 +175,28 @@
         <attr name="itemText"></attr>
         <attr name="imageSize" format="integer"></attr>
         <attr name="itemTextColor"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="IconTextImageLayout">
+        <attr name="isHaveIcon"/>
+        <attr name="isHaveTitle" format="boolean"/>
+        <attr name="isHaveSubtitle" format="boolean"/>
+        <attr name="title_text"/>
+        <attr name="subtitle_text"/>
+        <attr name="title_gravity" format="enum">
+            <enum name="vertical" value="1"/>
+            <enum name="horizontal" value="2"/>
+        </attr>
+        <attr name="haveContent"/>
+        <attr name="contentText"/>
+        <attr name="title_color"/>
+        <attr name="subtitle_color"/>
+        <attr name="content_color"/>
+        <attr name="icon_src"/>
+        <attr name="arrow_src"/>
+        <attr name="have_arrow"/>
+        <attr name="paddingLeft" format="dimension"/>
+        <attr name="icon_width" format="dimension"/>
+        <attr name="icon_height" format="dimension"/>
     </declare-styleable>
 </resources>

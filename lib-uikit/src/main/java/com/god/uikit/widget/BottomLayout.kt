@@ -243,8 +243,20 @@ class BottomLayout : FrameLayout {
     }
 
     fun setOnBottomClickListener(onBottomClickListener: OnBottomClickListener) {
-        this.onBottomClickListener = onBottomClickListener
+       this.onBottomClickListener = onBottomClickListener;
     }
+
+    fun twoAndThree(operation: (Int, Int) -> Int){
+        //调用函数类型的参数
+        val result = operation(2, 3)
+        println("The result is $result")
+    }
+
+    fun main(arg: Array<String>) {
+        twoAndThree{ a, b -> a + b}
+        twoAndThree{ a, b -> a * b}
+    }
+
 
     fun getOnBottomClickListener(): OnBottomClickListener? {
         return onBottomClickListener
