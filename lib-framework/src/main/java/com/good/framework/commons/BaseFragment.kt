@@ -19,7 +19,7 @@ abstract open class BaseFragment<D : ViewDataBinding,V : BaseViewModel> : Fragme
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = DataBindingUtil.inflate(inflater,getLayoutRes(),container,true);
+        dataBinding = DataBindingUtil.inflate(inflater,getLayoutRes(),container,false);
         return dataBinding!!.root;
     }
 

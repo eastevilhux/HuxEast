@@ -1,7 +1,5 @@
 package com.good.job.models.main
 
-import android.widget.Toast
-import androidx.appcompat.widget.ButtonBarLayout
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.god.uikit.widget.BottomLayout.OnBottomClickListener
@@ -13,9 +11,7 @@ import com.good.job.models.main.User.UserFragment
 import com.good.job.models.main.auction.AuctionFragment
 import com.good.job.models.main.commodity.CommlistFragment
 import com.good.job.models.main.home.HomeFragment
-import com.good.job.viewmodels.main.MainViewModel
 import androidx.fragment.app.FragmentPagerAdapter
-import com.good.framework.commons.BaseFragment
 
 @Route(path = Constants.MAIN)
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), OnBottomClickListener {
@@ -48,9 +44,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), OnBotto
     }
 
     override fun onBottomClick(position: Int) {
-        when(position){
-
-        }
+        dataBinding.fragmentViewpager.currentItem = position-1;
     }
 
     fun initFragmentList(){

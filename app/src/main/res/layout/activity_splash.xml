@@ -6,7 +6,7 @@
     <data>
         <variable
             name="splashac"
-            type="com.good.job.models.SplashActivity" />
+            type="com.good.job.models.main.splash.SplashActivity" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

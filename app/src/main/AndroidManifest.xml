@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".commons.EastApplication">
-        <activity android:name=".models.SplashActivity"
+        <activity android:name=".models.main.splash.SplashActivity"
             android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

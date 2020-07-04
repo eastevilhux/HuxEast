@@ -1,4 +1,4 @@
-package com.good.job.models
+package com.good.job.models.main.splash
 
 import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -8,7 +8,6 @@ import com.good.framework.entity.VMData
 import com.good.job.R
 import com.good.job.commons.Constants
 import com.good.job.databinding.ActivitySplashBinding
-import com.good.job.viewmodels.SplashViewModel
 
 @Route(path = "/models/splash")
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
