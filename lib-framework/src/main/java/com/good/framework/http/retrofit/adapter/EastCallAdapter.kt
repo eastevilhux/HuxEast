@@ -1,0 +1,93 @@
+package com.good.framework.http.retrofit.adapter
+
+import android.util.Log
+import com.good.framework.http.HttpConfig
+import com.good.framework.http.entity.Result
+import retrofit2.Call
+import retrofit2.CallAdapter
+import retrofit2.Response
+import java.io.IOException
+import java.lang.Exception
+import java.lang.reflect.Type
+import java.net.ConnectException
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
+
+class EastCallAdapter<R>(val type:Type) : CallAdapter<R, R>{
+    val TAG = "EastCallAdapter=>";
+
+    override fun adapt(call: Call<R>?): R {
+        return try {
+            var response = call!!.execute();
+            if(response.isSuccessful){
+                var body = response.body() ?: emptyResponse();
+                val result = body as Result<*>;
+                when(result.code){
+                    HttpConfig.CODE_LOGIN -> loginError();
+                }
+                return body;
+            }else{
+                errorResponse(response);
+            }
+        }catch (e: Exception){
+            parseException(e)
+        }
+    }
+
+    override fun responseType(): Type = type;
+
+    private fun loginError(){
+        Log.d(TAG,"login_error");
+    }
+
+    private fun errorResponse(response: Response<R>) : R{
+        return error(Result<Any>(),response) as R;
+    }
+
+    private fun emptyResponse() : R{
+        return empty(Result<Any>()) as R;
+    }
+
+    private fun parseException(e:Exception) : R{
+        return when(e){
+            is IOException,
+            is ConnectException,
+            is UnknownHostException,
+            is SocketTimeoutException -> networkError()
+            else -> exceptionResponse(e.message);
+        }
+    }
+
+    private fun networkError() : R{
+        return exception(Result<Any>(),"network_error",HttpConfig.CODE_ERROR) as R;
+    }
+
+    private fun exceptionResponse(message: String?) : R{
+        return exception(Result<Any>(),message,HttpConfig.CODE_ERROR) as R;
+    }
+
+    companion object{
+
+        fun <T : Result<*>> empty(response: T, code: Int = HttpConfig.CODE_ERROR): T {
+            response.code = code
+            response.msg = "no_data";
+            return response
+        }
+
+        fun <T : Result<*>> error(response: T, retrofitResponse: Response<*>): T {
+            response.code = retrofitResponse.code()
+            response.msg = retrofitResponse.message()
+            return response
+        }
+
+        fun <T : Result<*>> exception(
+            response: T,
+            message: String?,
+            code: Int = HttpConfig.CODE_ERROR
+        ): Result<*> {
+            response.code = code
+            response.msg = message
+            return response
+        }
+    }
+}

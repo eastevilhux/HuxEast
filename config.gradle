@@ -45,6 +45,7 @@ ext{
             "easypermissions"            :    "3.0.0",
             "arouter"                    :    "1.3.0",
             "constraintlayout"           :    "1.1.3",
+            "glide"                      :    "4.6.1",
     ]
 
     dependencies = [
@@ -68,7 +69,8 @@ ext{
             "autodispose_archcomponents" :    "com.uber.autodispose:autodispose-android-archcomponents:${versions.autodispose_archcomponents}",
             "easypermissions"            :    "pub.devrel:easypermissions:${versions.easypermissions}",
             "arouter"                    :    "com.alibaba:arouter-api:${versions.arouter}",
-            "constraintlayout"           :    "com.android.support.constraint:constraint-layout"
+            "constraintlayout"           :    "com.android.support.constraint:constraint-layout",
+            "glide"                      :    "com.github.bumptech.glide:glide:${versions.glide}"
     ]
 
 }

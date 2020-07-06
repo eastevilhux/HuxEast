@@ -2,6 +2,7 @@ package com.good.framework.commons
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 
 abstract open class BaseFragment<D : ViewDataBinding,V : BaseViewModel> : Fragment() {
+    val TAG = "BaseFragment=>";
     lateinit var viewModel : V;
     lateinit var dataBinding : D;
 
@@ -30,6 +32,8 @@ abstract open class BaseFragment<D : ViewDataBinding,V : BaseViewModel> : Fragme
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        Log.d(TAG,"onActivityCreated");
+
         var vp = ViewModelProvider(this,
             ViewModelProvider.AndroidViewModelFactory.getInstance(activity!!.application));
         viewModel = vp.get(getVMClass()!!);
@@ -38,10 +42,16 @@ abstract open class BaseFragment<D : ViewDataBinding,V : BaseViewModel> : Fragme
         dataBinding.lifecycleOwner = this;
 
         viewModel.initOnFragmentActivityCreate();
+
+        initView()
     }
 
     abstract fun getLayoutRes():Int;
 
     abstract fun getVMClass() : Class<V>;
+
+    open fun initView(){
+
+    }
 
 }
