@@ -49,5 +49,9 @@ class RetrofitConfigure private constructor(){
     }
 
 
+    companion object{
+
+        val instance by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { RetrofitConfigure() }
+    }
 
 }

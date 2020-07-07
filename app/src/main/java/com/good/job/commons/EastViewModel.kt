@@ -21,6 +21,16 @@ abstract open class EastViewModel<VM : VMData>(application: Application) : BaseV
 
     }
 
+    /*suspend fun <T> requestResponse(
+        loading: Loading? = Loading.shortToast(),
+        error: Error? = Error.shortToast(),
+        bloak:suspend() -> Result<T>
+    ):Result<T>{
+
+    }*/
+
+
+
     fun getLiveData() : MutableLiveData<VM>{
         return data;
     }

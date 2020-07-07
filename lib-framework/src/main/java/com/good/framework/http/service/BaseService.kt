@@ -28,4 +28,5 @@ interface BaseService {
      */
     @POST("event/appsplash")
     fun appSplashEvent(@Query("apptype") apptype: Int): Result<*>;
+
 }
