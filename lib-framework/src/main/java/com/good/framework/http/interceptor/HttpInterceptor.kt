@@ -1,21 +1,65 @@
 package com.good.framework.http.interceptor
 
-import android.accounts.AccountManager
+import android.util.Log
+import com.good.framework.http.commons.Constants
+import com.good.framework.http.HttpConfig
 import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
+import java.lang.String
+import java.nio.charset.Charset
 
 class HttpInterceptor : Interceptor{
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        val request: Request = chain.request()
-        val headers: Headers = addCommonHeader(request)
-        val newRequest = request.newBuilder()
-            .headers(headers)
-            .build()
+        val oldRequest = chain.request()
 
-        return chain.proceed(newRequest)
+        val headers: Headers = addCommonHeader(oldRequest)
+
+        val commonParamsUrlBuilder = oldRequest.url()
+            .newBuilder()
+            .scheme(oldRequest.url().scheme())
+            .host(oldRequest.url().host())
+            .addEncodedQueryParameter("appkey", Constants.appKey)
+            .addEncodedQueryParameter(
+                "keytype",
+                String.valueOf(Constants.serviceType)
+            )
+
+        val newRequestBuild = oldRequest.newBuilder()
+            .method(oldRequest.method(), oldRequest.body())
+            .headers(headers)
+            .url(commonParamsUrlBuilder.build())
+
+        //拿到响应体
+        val mResponse = chain.proceed(newRequestBuild.build())
+        val responseBody = mResponse.body()
+
+        //得到缓冲源
+
+        //得到缓冲源
+        val source = responseBody!!.source()
+
+        //请求全部
+
+        //请求全部
+        source.request(Long.MAX_VALUE) // Buffer the entire body.
+
+        val buffer = source.buffer()
+        var charset: Charset = HttpConfig.HTTP_CHARSET
+
+        val contentType = responseBody.contentType()
+
+        if (contentType != null) {
+            charset = contentType.charset(HttpConfig.HTTP_CHARSET)!!
+        }
+        //读取返回数据
+        //读取返回数据
+        val bodyString = buffer.clone().readString(charset)
+        Log.d("result==>", bodyString)
+        return mResponse
+
     }
 
     private fun addCommonHeader(request: Request): Headers {

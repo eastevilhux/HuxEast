@@ -29,8 +29,6 @@ abstract open class EastViewModel<VM : VMData>(application: Application) : BaseV
 
     }*/
 
-
-
     fun getLiveData() : MutableLiveData<VM>{
         return data;
     }
