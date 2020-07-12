@@ -4,6 +4,7 @@ import com.good.framework.http.interceptor.HttpInterceptor
 import com.good.framework.http.retrofit.adapter.EastCallAdapterFactory
 import com.good.framework.http.retrofit.convert.EastConverterFactory
 import com.good.framework.http.service.BaseService
+import com.good.framework.utils.JsonUtil
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
@@ -40,7 +41,7 @@ class RetrofitConfigure private constructor(){
         val retrofit = Retrofit.Builder()
             .baseUrl(BaseService.BASE_URL)
             .client(okBuilder.build())
-            .addConverterFactory(EastConverterFactory.create())
+            .addConverterFactory(EastConverterFactory.create(JsonUtil.instance.getGson()))
             .addCallAdapterFactory(EastCallAdapterFactory())
             .build()
 

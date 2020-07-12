@@ -29,7 +29,7 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
         return AutoDisposeUtil.bindLifecycle(mLifecycleOwner!!)
     }
 
-    open fun initOnActivityCrate(){
+    open fun initModel(){
 
     }
 

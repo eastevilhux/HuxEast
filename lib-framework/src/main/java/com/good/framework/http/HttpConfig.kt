@@ -3,12 +3,20 @@ package com.good.framework.http
 import java.nio.charset.Charset
 
 object HttpConfig {
-    const val CODE_SUCCESS = 88;
+    const val CODE_SUCCESS = 66;
     const val CODE_ERROR = -1;
     const val CODE_LOGIN = -3;
     val HTTP_CHARSET = Charset.forName("UTF-8");
-    const val TIME_OUT = 5L;
+    const val UTF8_CHARSET = "UTF-8";
+    const val TIME_OUT = 10L;
 
     //Retrofit缓存时间为1小时
     const val MAX_AGE = 60
+
+    //请求服务器地址URL
+    const val SERVICE_URL = "http://192.168.0.100:8080/lifehouse/"
+
+    //请求Token地址URL
+    const val TOKEN_URL = "http://192.168.0.100:8080/token"
+
 }

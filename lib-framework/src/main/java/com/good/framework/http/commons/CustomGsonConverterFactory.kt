@@ -11,24 +11,26 @@ import java.lang.reflect.Type
 
 class CustomGsonConverterFactory(private val gson: Gson) : Converter.Factory(){
 
-    fun create() : CustomGsonConverterFactory{
-        return create(Gson())
-    }
+    companion object {
 
-    fun create(gson: Gson) : CustomGsonConverterFactory{
-        if(gson == null)
-            throw NullPointerException("the gson is null");
-        return CustomGsonConverterFactory(gson);
-    }
+        fun create(): CustomGsonConverterFactory {
+            return create(Gson())
+        }
 
+        fun create(gson: Gson): CustomGsonConverterFactory {
+            if (gson == null)
+                throw NullPointerException("the gson is null");
+            return CustomGsonConverterFactory(gson);
+        }
+    }
 
     override fun responseBodyConverter(
         type: Type?,
         annotations: Array<Annotation?>?,
         retrofit: Retrofit?
-    ): Converter<ResponseBody?, *>? {
+    ): CustomGsonResponseConverter<out Any> {
         val adapter: TypeAdapter<*> = gson.getAdapter(TypeToken.get(type))
-        //return CustomGsonResponseConverter(gson, adapter)
+        return CustomGsonResponseConverter(gson, adapter)
     }
 
     override fun requestBodyConverter(
@@ -39,6 +41,7 @@ class CustomGsonConverterFactory(private val gson: Gson) : Converter.Factory(){
     ): Converter<*, RequestBody?>? {
         val adapter: TypeAdapter<*> = gson.getAdapter(TypeToken.get(type))
         //return GsonRequestBodyConverter(gson, adapter)
+        return super.requestBodyConverter(type, parameterAnnotations, methodAnnotations, retrofit);
     }
 
 }

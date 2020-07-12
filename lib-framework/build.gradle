@@ -59,4 +59,7 @@ dependencies {
     compile rootProject.ext.dependencies["ucrop"]
     compile rootProject.ext.dependencies["autodispose_archcomponents"]
     compile rootProject.ext.dependencies["easypermissions"]
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.3.20'
+    compile 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
+    compile 'org.jetbrains.anko:anko-common:0.8.2'
 }

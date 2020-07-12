@@ -18,13 +18,11 @@ class EastReqeustBodyConverter<T>(private val gson:Gson,val adapter: TypeAdapter
 
     override fun convert(value: T): RequestBody {
         val buffer = Buffer();
-        val writer = OutputStreamWriter(buffer.outputStream(),HttpConfig.CHAR_SET);
+        val writer = OutputStreamWriter(buffer.outputStream(),HttpConfig.HTTP_CHARSET);
         val jsonWriter = gson.newJsonWriter(writer)
         adapter.write(jsonWriter, value)
         jsonWriter.close()
         return RequestBody.create(MEDIA_TYPE, buffer.readByteString());
     }
-
-
 
 }

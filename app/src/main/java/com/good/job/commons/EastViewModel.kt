@@ -12,14 +12,9 @@ abstract open class EastViewModel<VM : VMData>(application: Application) : BaseV
         data = MutableLiveData();
         data.value = initVMData();
         data.value!!.code = VMData.Code.CODE_DEFAULT;
-        initModel();
     }
 
     abstract fun initVMData() : VM;
-
-    open fun initModel(){
-
-    }
 
     /*suspend fun <T> requestResponse(
         loading: Loading? = Loading.shortToast(),

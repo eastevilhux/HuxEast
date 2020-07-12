@@ -13,12 +13,12 @@ import java.net.ConnectException
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
-class EastCallAdapter<R>(val type:Type) : CallAdapter<R, R>{
+class EastCallAdapter<R>(private val type:Type) : CallAdapter<R, R>{
     val TAG = "EastCallAdapter=>";
 
-    override fun adapt(call: Call<R>?): R {
+    override fun adapt(call: Call<R>): R {
         return try {
-            var response = call!!.execute();
+            var response = call.execute();
             if(response.isSuccessful){
                 var body = response.body() ?: emptyResponse();
                 val result = body as Result<*>;
@@ -49,6 +49,7 @@ class EastCallAdapter<R>(val type:Type) : CallAdapter<R, R>{
     }
 
     private fun parseException(e:Exception) : R{
+        Log.d(TAG,e.message)
         return when(e){
             is IOException,
             is ConnectException,

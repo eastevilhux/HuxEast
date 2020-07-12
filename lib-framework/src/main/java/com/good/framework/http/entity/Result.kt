@@ -2,9 +2,8 @@ package com.good.framework.http.entity
 
 import com.good.framework.http.HttpConfig
 
-class Result<T>{
+class Result<T>(val data:T? = null){
     var code = 0;
-    var data : String? = null;
     var tag = null;
     var msg : String? = null;
 
@@ -22,7 +21,6 @@ class Result<T>{
             var result = Result<Any>();
             result.code = code;
             result.msg = message;
-            result.data = data;
             return result;
         }
     }

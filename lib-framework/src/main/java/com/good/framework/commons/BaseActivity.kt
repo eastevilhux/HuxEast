@@ -20,8 +20,8 @@ abstract class BaseActivity<D : ViewDataBinding,V : BaseViewModel> : AppCompatAc
         viewModel.setLifecycleOwner(this);
         lifecycle.addObserver(viewModel);
         dataBinding.lifecycleOwner = this;
+        viewModel.initModel();
         initView();
-        viewModel.initOnActivityCrate();
     }
 
     abstract fun getLayoutRes() : Int;
