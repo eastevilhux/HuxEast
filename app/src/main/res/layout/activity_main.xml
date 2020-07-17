@@ -30,7 +30,7 @@
         <com.god.uikit.widget.BottomLayout
             android:id="@+id/bottom_layout"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/appButtonHeight"
+            android:layout_height="@dimen/buttonHeight"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

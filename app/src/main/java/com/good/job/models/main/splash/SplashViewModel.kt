@@ -3,11 +3,11 @@ package com.good.job.models.main.splash
 import android.app.Application
 import android.os.Handler
 import android.util.Log
+import com.alibaba.android.arouter.launcher.ARouter
 import com.good.framework.entity.VMData
-import com.good.framework.http.RetrofitConfigure
 import com.good.framework.http.commons.BaseModel
+import com.good.job.commons.Constants
 import com.good.job.commons.EastViewModel
-import kotlin.jvm.internal.ReflectionFactory
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -21,9 +21,10 @@ class SplashViewModel(application: Application) : EastViewModel<SplashData>(appl
     }
 
     override fun initModel() {
-        Thread(Runnable {
-            appSplashData()
-        }).start();
+        Handler().postDelayed(Runnable {
+            ARouter.getInstance().build(Constants.MAIN)
+                .navigation()
+        },3000);
     }
 
 
