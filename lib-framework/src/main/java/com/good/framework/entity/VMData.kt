@@ -6,6 +6,8 @@ import kotlin.properties.Delegates
 open class VMData : Serializable{
     var code by Delegates.notNull<Code>();
 
+    var requestCode : Int = 0;
+
     companion object{
         private const val serialVersionUID= 5990939387657237756L;
     }

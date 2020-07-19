@@ -55,7 +55,7 @@
         <attr name="iconSrc_nor_5" format="reference"></attr>
     </declare-styleable>
 
-    <!--<declare-styleable name="TitleLayout">
+    <declare-styleable name="TitleLayout">
         <attr name="titleTextColor" format="color"></attr>
         <attr name="backTextColor" format="color"></attr>
         <attr name="menuTextColor"></attr>
@@ -74,7 +74,7 @@
             <enum name="square" value="1"></enum>
             <enum name="rectangle" value="2"></enum>
         </attr>
-    </declare-styleable>-->
+    </declare-styleable>
 
 
     <declare-styleable name="CountdownButton">

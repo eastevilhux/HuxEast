@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="titleColor"
+            type="androidx.databinding.ObservableField&lt;Integer&gt;"/>
+
+        <variable
+            name="menuColor"
+            type="androidx.databinding.ObservableField&lt;Integer&gt;"/>
+
+        <variable
+            name="title"
+            type="androidx.databinding.ObservableField&lt;String&gt;"/>
+
+        <variable
+            name="menuStr"
+            type="androidx.databinding.ObservableField&lt;String&gt;"/>
+
+        <variable
+            name="titleLayout"
+            type="com.god.uikit.widget.TitleLayout"/>
+
+        <variable
+            name="iconBackType"
+            type="androidx.databinding.ObservableField&lt;Integer&gt;"/>
+
+        <variable
+            name="menuType"
+            type="androidx.databinding.ObservableField&lt;Integer&gt;"/>
+
+        <variable
+            name="backText"
+            type="androidx.databinding.ObservableField&lt;String&gt;"/>
+
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/appTitleHeight"
+        android:paddingRight="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:onClick="@{titleLayout.back}"
+            android:visibility="@{iconBackType == 0 ? View.GONE : View.VISIBLE}">
+
+            <ImageView
+                android:id="@+id/icon_back_square"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:padding="@dimen/padding5"
+                android:src="@drawable/back_arrow"
+                android:visibility="@{iconBackType == 1 ? View.VISIBLE : View.GONE}" />
+
+
+            <ImageView
+                android:id="@+id/icon_back_rectangle"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:visibility="@{iconBackType == 2 ? View.VISIBLE : View.GONE}"/>
+
+
+            <TextView
+                android:id="@+id/back_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BaseTextTheme"
+                android:textColor="@color/colorBlack"
+                android:text="@{backText}"/>
+
+        </LinearLayout>
+
+
+
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BaseTextTheme"
+            android:textColor="@{titleColor}"
+            android:layout_centerInParent="true"
+            android:text="@{title}"
+            android:textSize="15sp"/>
+
+
+        <TextView
+            android:id="@+id/menu_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BaseTextTheme"
+            android:textColor="@{menuColor}"
+            android:text="@{menuStr}"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:onClick="@{titleLayout.menu}"
+            android:visibility="@{menuType == 1 ? View.VISIBLE : View.GONE}"/>
+
+
+        <ImageView
+            android:id="@+id/menu_image"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/icon_delete"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:onClick="@{titleLayout.menu}"
+            android:visibility="@{menuType == 2 ? View.VISIBLE : View.GONE}"/>
+
+    </RelativeLayout>
+
+
+</layout>

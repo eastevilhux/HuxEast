@@ -8,7 +8,10 @@ class JsonUtil private constructor(){
     companion object{
         private val gson : Gson by lazy (mode = LazyThreadSafetyMode.SYNCHRONIZED ){
             val gsonBuilder = GsonBuilder()
-            gsonBuilder.create();
+                .enableComplexMapKeySerialization()
+                .setPrettyPrinting()
+                gsonBuilder.create();
+
         }
 
         val instance : JsonUtil by lazy (mode = LazyThreadSafetyMode.SYNCHRONIZED){

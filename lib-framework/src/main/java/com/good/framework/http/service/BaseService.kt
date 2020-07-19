@@ -1,6 +1,7 @@
 package com.good.framework.http.service
 
 import com.good.framework.entity.KeySet
+import com.good.framework.http.entity.Event
 import com.good.framework.http.entity.Result
 import retrofit2.http.POST
 import retrofit2.http.Query
@@ -28,6 +29,12 @@ interface BaseService {
      * [<]
      */
     @POST("event/appsplash")
-    fun appSplashEvent(@Query("apptype") apptype: Int): Result<*>;
+    fun appSplashEvent(@Query("apptype") apptype: Int): Result<Event>;
 
+
+    /**
+     * 查询首页banner列表
+     */
+    @POST("event/homebanner")
+    fun appBannerList(@Query("apptype") apptype : Int) : Result<List<Event>>;
 }

@@ -19,7 +19,10 @@ class EastCallAdapter<R>(private val type:Type) : CallAdapter<R, R>{
     override fun adapt(call: Call<R>): R {
         return try {
             var response = call.execute();
+            Log.d(TAG+"code:",response.code().toString());
+            Log.d(TAG+"msg:",response.message());
             if(response.isSuccessful){
+                Log.d(TAG,"sucess");
                 var body = response.body() ?: emptyResponse();
                 val result = body as Result<*>;
                 when(result.code){
@@ -41,15 +44,17 @@ class EastCallAdapter<R>(private val type:Type) : CallAdapter<R, R>{
     }
 
     private fun errorResponse(response: Response<R>) : R{
+        Log.d(TAG,"errorResponse");
         return error(Result<Any>(),response) as R;
     }
 
     private fun emptyResponse() : R{
+        Log.d(TAG,"emptyResponse");
         return empty(Result<Any>()) as R;
     }
 
     private fun parseException(e:Exception) : R{
-        Log.d(TAG,e.message)
+        Log.d(TAG,e?.let { e.message }?:"no error message")
         return when(e){
             is IOException,
             is ConnectException,
@@ -60,16 +65,17 @@ class EastCallAdapter<R>(private val type:Type) : CallAdapter<R, R>{
     }
 
     private fun networkError() : R{
-        return exception(Result<Any>(),"network_error",HttpConfig.CODE_ERROR) as R;
+        Log.d(TAG,"networkError");
+        return exception(Result<Any>(),"network_error",HttpConfig.CODE_NETWORK) as R;
     }
 
     private fun exceptionResponse(message: String?) : R{
-        return exception(Result<Any>(),message,HttpConfig.CODE_ERROR) as R;
+        return exception(Result<Any>(),message,HttpConfig.CODE_SERVICE_ERROR) as R;
     }
 
     companion object{
 
-        fun <T : Result<*>> empty(response: T, code: Int = HttpConfig.CODE_ERROR): T {
+        fun <T : Result<*>> empty(response: T, code: Int = HttpConfig.CODE_EMPTY): T {
             response.code = code
             response.msg = "no_data";
             return response

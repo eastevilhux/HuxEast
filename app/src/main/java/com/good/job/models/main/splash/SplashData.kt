@@ -5,4 +5,7 @@ import kotlin.properties.Delegates
 
 class SplashData : VMData() {
 
+    companion object{
+        const val  CODE_JUMP_MAIN : Int = 1;
+    }
 }

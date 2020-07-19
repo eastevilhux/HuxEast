@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="haveMenu"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+        <variable
+            name="haveMenuImage"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="haveMenuLine"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="haveArrow"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="haveCondition"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="haveConditionLine"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="menuText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="hintSearchText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="conditionText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="@{haveMenu ? View.VISIBLE : View.GONE}">
+
+                <ImageView
+                    android:id="@+id/menu_image"
+                    android:layout_width="@dimen/SearchMenuImageSize"
+                    android:layout_height="@dimen/SearchMenuImageSize"
+                    android:visibility="@{haveMenuImage ? View.VISIBLE : View.GONE}"
+                    android:padding="@dimen/padding5"/>
+
+
+                <TextView
+                    android:id="@+id/menu_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseTextTheme"
+                    android:text="@{menuText}"/>
+
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/line_text"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="@{haveMenuLine ? View.VISIBLE : View.GONE}"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="@dimen/margin3"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/condition_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerVertical="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:visibility="@{haveCondition ? View.VISIBLE : View.GONE}">
+
+                <TextView
+                    android:id="@+id/condition_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/BaseEditTheme"
+                    android:text="@{conditionText}"/>
+
+
+                <ImageView
+                    android:id="@+id/arrow_image"
+                    android:layout_width="@dimen/arrowImgSize"
+                    android:layout_height="@dimen/arrowImgSize"
+                    android:visibility="@{haveArrow ? View.VISIBLE : View.GONE}"
+                    android:src="@drawable/icon_default_arrow"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/condition_line"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="@dimen/margin3"
+                android:layout_alignParentBottom="true"
+                android:visibility="@{haveConditionLine ? View.VISIBLE : View.GONE}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:id="@+id/searchtext_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/searchEdithHeight"
+            android:layout_toRightOf="@id/menu_layout"
+            android:layout_toLeftOf="@id/condition_layout"
+            android:layout_centerVertical="true">
+
+            <EditText
+                android:id="@+id/search_edit"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/searchEdithHeight"
+                style="@style/BaseEditTheme"
+                android:paddingLeft="@dimen/padding3"
+                android:layout_centerVertical="true"
+                android:hint="@{hintSearchText}"
+                android:background="@null"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</layout>

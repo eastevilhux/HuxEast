@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="haveImage"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+        
+        <variable
+            name="content"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="haveItem"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="itemText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="haveMenu"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="menuText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="haveItemImage"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+
+        <variable
+            name="haveArrow"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/exhibit_image"
+            android:layout_width="@dimen/exhibit_img_size"
+            android:layout_height="@dimen/exhibit_img_size"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin10"
+            android:visibility="@{haveImage ? View.VISIBLE : View.GONE}"/>
+        
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toRightOf="@id/exhibit_image"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/margin10">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BaseTextTheme"
+                android:text="@{content}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BaseTextTheme"
+                android:textSize="@dimen/exhibit_text_size"
+                android:text="@{itemText}"
+                android:textColor="@color/colorItemText"
+                android:visibility="@{haveItem ? View.VISIBLE : View.GONE}"/>
+            
+        </LinearLayout>        
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_marginRight="@dimen/margin10"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/exhibit_item_image"
+                android:layout_width="@dimen/exhibit_img_size"
+                android:layout_height="@dimen/exhibit_img_size"
+                android:visibility="@{haveItemImage ? View.VISIBLE : View.GONE}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/BaseTextTheme"
+                android:text="@{menuText}"
+                android:visibility="@{haveMenu ? View.VISIBLE : View.GONE}"/>
+
+            <ImageView
+                android:id="@+id/exhibit_arrow_image"
+                android:layout_width="@dimen/appArrowImgSize"
+                android:layout_height="@dimen/appArrowImgSize"
+                android:visibility="@{haveArrow ? View.VISIBLE : View.GONE}"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

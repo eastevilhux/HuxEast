@@ -43,6 +43,54 @@
                         app:banner_tipTextSize="13sp"
                         app:banner_transitionEffect="alpha" />
 
+                    <LinearLayout
+                        android:id="@+id/health_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_80"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:background="@color/colorWhite"
+                        android:layout_marginTop="@dimen/dp_10">
+
+                        <com.god.uikit.widget.TopdownLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/homeItemHiehgt"
+                            android:layout_weight="1"
+                            app:imageSize="40"
+                            app:iconSrc="@drawable/icon_home_item_visit"
+                            app:itemText="@string/home_item_visit"/>
+
+                        <com.god.uikit.widget.TopdownLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/homeItemHiehgt"
+                            android:layout_weight="1"
+                            app:imageSize="40"
+                            app:iconSrc="@drawable/icon_home_item_inter"
+                            app:itemText="@string/home_item_interrogation"/>
+
+
+                        <com.god.uikit.widget.TopdownLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/homeItemHiehgt"
+                            android:layout_weight="1"
+                            app:imageSize="40"
+                            app:iconSrc="@drawable/icon_home_item_pharmacy"
+                            app:itemText="@string/home_item_pharmacy"/>
+
+
+                        <com.god.uikit.widget.TopdownLayout
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/homeItemHiehgt"
+                            android:layout_weight="1"
+                            app:imageSize="40"
+                            app:iconSrc="@drawable/icon_home_item_hospital"
+                            app:itemText="@string/home_item_hospital"/>
+
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </com.google.android.material.appbar.CollapsingToolbarLayout>
@@ -55,14 +103,58 @@
             android:overScrollMode="never"
             android:scrollbars="none"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            android:background="@color/colorMainBg">
+            android:background="@color/colorMainBg"
+            android:fadingEdge="none">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <TextView
+                    android:id="@+id/tv_health"
+                    style="@style/InfoTextviewTheme"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/health_manager"
+                    android:layout_marginTop="@dimen/dp_10"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_health"
+                    android:background="@color/colorWhite"
+                    android:paddingLeft="@dimen/dp_10"
+                    android:paddingRight="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_1">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_tizhongguanli"
+                        android:layout_marginRight="@dimen/dp_5"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_xuetang_guanli"
+                        android:layout_marginLeft="@dimen/dp_5"
+                        android:layout_marginRight="@dimen/dp_5"/>
 
 
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_xueyaguanli"
+                        android:layout_marginLeft="@dimen/dp_5"/>
+
+                </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

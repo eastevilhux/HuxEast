@@ -2,14 +2,15 @@ package com.good.framework.commons
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
 
 abstract class BaseActivity<D : ViewDataBinding,V : BaseViewModel> : AppCompatActivity(){
-    lateinit var dataBinding : D;
-    lateinit var viewModel:V;
+    var dataBinding : D? = null;
+    var viewModel:V? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,10 +18,10 @@ abstract class BaseActivity<D : ViewDataBinding,V : BaseViewModel> : AppCompatAc
         var vp = ViewModelProvider(this,
         ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()));
         viewModel = vp.get(getVMClass()!!);
-        viewModel.setLifecycleOwner(this);
-        lifecycle.addObserver(viewModel);
-        dataBinding.lifecycleOwner = this;
-        viewModel.initModel();
+        viewModel?.setLifecycleOwner(this);
+        lifecycle.addObserver(viewModel!!);
+        dataBinding?.lifecycleOwner = this;
+        viewModel?.initModel();
         initView();
     }
 

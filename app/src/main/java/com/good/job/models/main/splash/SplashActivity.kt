@@ -6,11 +6,13 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.good.framework.commons.BaseActivity
 import com.good.framework.entity.VMData
 import com.good.job.R
+import com.good.job.commons.AppActivity
 import com.good.job.commons.Constants
+import com.good.job.commons.arouteJump
 import com.good.job.databinding.ActivitySplashBinding
 
 @Route(path = "/models/splash")
-class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
+class SplashActivity : AppActivity<ActivitySplashBinding, SplashViewModel>() {
 
     override fun getLayoutRes(): Int {
         return R.layout.activity_splash;
@@ -21,13 +23,15 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
     }
 
     override fun initView() {
-        dataBinding.splashac = this;
+        dataBinding?.splashac = this;
 
-        viewModel.getLiveData().observe(this, Observer {
-            when(it.code){
-                VMData.Code.CODE_SUCCESS->{
-                    ARouter.getInstance().build(Constants.MAIN).navigation();
-                }
+        viewModel?.event?.observe(this, Observer {
+
+        })
+
+        viewModel?.data?.observe(this, Observer {
+            when(it.requestCode){
+                SplashData.CODE_JUMP_MAIN -> arouteJump(Constants.MAIN,finish = true,activity = this);
             }
         })
     }

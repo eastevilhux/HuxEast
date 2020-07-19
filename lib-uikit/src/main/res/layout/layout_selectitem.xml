@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="haveItemImage"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+        <variable
+            name="haveArrow"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+        <variable
+            name="itemText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+        <variable
+            name="haveItem"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="haveContent"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+
+        <variable
+            name="contentText"
+            type="androidx.databinding.ObservableField&lt;String&gt;" />
+
+        <variable
+            name="contentGravity"
+            type="androidx.databinding.ObservableField&lt;Integer&gt;" />
+
+        <variable
+            name="itemTextColor"
+            type="Integer" />
+
+        <variable
+            name="contentTextColor"
+            type="Integer" />
+    </data>
+    
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/itemimage_view"
+            android:layout_width="@dimen/selImageSize"
+            android:layout_height="@dimen/selImageSize"
+            android:visibility="@{haveItemImage ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="@dimen/margin10"/>
+
+        <TextView
+            android:id="@+id/itemtext_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/BaseTextTheme"
+            android:text="@{itemText}"
+            android:textColor="@{itemTextColor}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/itemimage_view"
+            android:visibility="@{haveItem ? View.VISIBLE : View.GONE}"
+            android:layout_marginLeft="@dimen/margin10"/>
+
+
+        <ImageView
+            android:id="@+id/arrow_imageview"
+            android:layout_width="@dimen/appArrowImgSize"
+            android:layout_height="@dimen/appArrowImgSize"
+            android:visibility="@{haveArrow ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginRight="@dimen/margin10"/>
+
+
+
+        <TextView
+            android:id="@+id/content_textview"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BaseTextTheme"
+            android:text="@{contentText}"
+            android:gravity="@{contentGravity}"
+            android:textColor="@{contentTextColor}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/arrow_imageview"
+            app:layout_constraintStart_toEndOf="@id/itemtext_text"
+            android:paddingLeft="@dimen/padding10"
+            android:visibility="@{haveContent ? View.VISIBLE : View.GONE}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

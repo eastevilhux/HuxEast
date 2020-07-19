@@ -2,112 +2,56 @@ package com.good.framework.http.commons
 
 class Constants {
     companion object{
-        /**
-         * 使用RSA方式进行解密标识
-         */
-        const val DECRYPT_RSA = 1
 
         /**
-         * 使用AES方式解密标识
+         * 数据加密类型
          */
-        const val DECRYPT_AES = 2
+        var encrypType : EncrypType = EncrypType.ENCRYPE_RSA;
 
         /**
-         * 使用RSA加密数据标识
+         * 数据解密类型
          */
-        const val ENCRYPT_RSA = 3
+        var decrypType : DecrypType = DecrypType.DECRYPT_RSA;
 
-        /**
-         * 使用AES进行数据加密处理标识
-         */
-        const val ENCRYPT_AES = 4
+        var encrypKey : String? = null;
 
-        /**
-         * 服务端RSA标识
-         */
-        const val SERVICE_TYPE_RSA = 1
+        var appKey : String? = null;
 
-        /**
-         * 服务端AES标识
-         */
-        const val SERVICE_TYPE_AES = 2
-
-
-        /**
-         * 解密数据类型标识错误
-         */
-        const val CODE_DECRYPE_ERROR = -2
-
-        /**
-         * 在SharedPreferences缓存登录用户的appkey的key标识
-         */
-        const val SP_KEY_APPKEY = "appkey"
-
-        /**
-         * 接口请求key标识
-         */
-        var appKey: String? = null
-
-        /**
-         * 用户标识
-         */
-        val userid: String? = null
+        var userid : String ? = null;
 
         /**
          * 前后端数据加密处理交互类型，1:RSA处理类型，2:AES处理类型
          */
-        var serviceType = 0
+        var serviceType : ServiceType = ServiceType.SERVICE_TYPE_RSA;
 
-        /**
-         * 加密方式
-         */
-        var encrypType = 0
+        var serviceKey : String? = null;
 
-        /**
-         * 解密方式
-         */
-        var decrypType = 0
-
-        /**
-         * 缓存的用来解析后端的key
-         */
-        var serviceKey: String? = null
-
-        /**
-         * 设置当前系统与后端交互方式为RSA，并设置相关类型
-         *
-         * create by Administrator at 2020/3/28 4:44
-         * @author Administrator
-         * @since 1.0.0
-         * @return
-         * void
-         */
-        fun setRSAType() {
-            decrypType =
-                DECRYPT_RSA;
-            encrypType =
-                ENCRYPT_RSA;
-            serviceType =
-                SERVICE_TYPE_RSA;
+        fun setAESType(){
+            encrypType = EncrypType.ENCRYPE_AES;
+            decrypType = DecrypType.DECRYPT_AES;
+            serviceType = ServiceType.SERVICE_TYPE_AES;
         }
 
-        /**
-         * 设置当前系统与后端交互方式为AES，并设置相关类型
-         *
-         * create by Administrator at 2020/3/28 4:44
-         * @author Administrator
-         * @since 1.0.0
-         * @return
-         * void
-         */
-        fun setAESType() {
-            decrypType =
-                DECRYPT_AES;
-            encrypType =
-                ENCRYPT_AES;
-            serviceType =
-                SERVICE_TYPE_AES;
+        fun setRSAType(){
+            encrypType = EncrypType.ENCRYPE_RSA;
+            decrypType = DecrypType.DECRYPT_RSA;
+            serviceType = ServiceType.SERVICE_TYPE_RSA;
         }
     }
 
+
+    enum class EncrypType(type:Int){
+        ENCRYPE_AES(1),
+        ENCRYPE_RSA(2);
+    }
+
+    enum class DecrypType(type:Int){
+        DECRYPT_AES(3),
+        DECRYPT_RSA(4);
+    }
+
+    enum class ServiceType(type:Int){
+        SERVICE_TYPE_AES(2),
+        SERVICE_TYPE_RSA(1);
+    }
 }

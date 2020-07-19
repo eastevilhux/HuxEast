@@ -45,5 +45,6 @@ dependencies {
     api rootProject.ext.dependencies["constraintlayout"]
     compile rootProject.ext.dependencies["bga_banner"]
     compile rootProject.ext.dependencies["glide"]
+    compile rootProject.ext.dependencies["systembartint"]
 }
 

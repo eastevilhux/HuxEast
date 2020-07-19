@@ -1,20 +1,23 @@
 package com.good.job.models.main
 
+import android.graphics.Color
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentPagerAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.god.uikit.utils.StatusBarUtil
 import com.god.uikit.widget.BottomLayout.OnBottomClickListener
-import com.good.framework.commons.BaseActivity
 import com.good.job.R
+import com.good.job.commons.AppActivity
 import com.good.job.commons.Constants
 import com.good.job.databinding.ActivityMainBinding
 import com.good.job.models.main.User.UserFragment
 import com.good.job.models.main.auction.AuctionFragment
 import com.good.job.models.main.commodity.CommlistFragment
 import com.good.job.models.main.home.HomeFragment
-import androidx.fragment.app.FragmentPagerAdapter
+
 
 @Route(path = Constants.MAIN)
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), OnBottomClickListener {
+class MainActivity : AppActivity<ActivityMainBinding, MainViewModel>(), OnBottomClickListener {
 
     var fragmentList = mutableListOf<Fragment>();
 
@@ -27,7 +30,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), OnBotto
     }
 
     override fun initView() {
-        dataBinding.bottomLayout.setOnBottomClickListener(this);
+        dataBinding?.bottomLayout!!.setOnBottomClickListener(this);
         initFragmentList();
 
         adapter = object : FragmentPagerAdapter(supportFragmentManager, 1) {
@@ -40,11 +43,24 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), OnBotto
                 return fragmentList.size;
             }
         }
-        dataBinding.adapter = adapter;
+        dataBinding?.adapter = adapter;
     }
 
+    override fun isImmersion(): Boolean = true;
+
+
     override fun onBottomClick(position: Int) {
-        dataBinding.fragmentViewpager.currentItem = position-1;
+        dataBinding?.fragmentViewpager!!.currentItem = position-1;
+        when(position){
+            1 -> {
+                StatusBarUtil.setRootViewFitsSystemWindows(this, false)
+                StatusBarUtil.setStatusBarColor(this, 0x00FFFFFF)
+            }
+            4 -> {
+                StatusBarUtil.setRootViewFitsSystemWindows(this, true)
+                StatusBarUtil.setStatusBarColor(this, Color.BLACK)
+            }
+        }
     }
 
     fun initFragmentList(){
@@ -53,6 +69,4 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), OnBotto
         fragmentList.add(AuctionFragment());
         fragmentList.add(UserFragment());
     }
-
-
 }

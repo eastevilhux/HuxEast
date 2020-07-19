@@ -1,14 +1,17 @@
 package com.good.job.models.main.home
 
 import android.annotation.SuppressLint
+import android.widget.ImageView
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.good.framework.commons.BaseFragment
+import com.god.uikit.utils.StatusBarUtil
 import com.good.job.R
+import com.good.job.commons.AppFragment
 import com.good.job.databinding.FragmentHomeBinding
 import kotlinx.android.synthetic.main.fragment_home.*
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(){
+class HomeFragment : AppFragment<FragmentHomeBinding, HomeViewModel>(){
 
     override fun getLayoutRes(): Int = R.layout.fragment_home;
 
@@ -24,10 +27,16 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>(){
         options.placeholder(R.drawable.icon_home_banner_default)
             .error(R.drawable.icon_home_banner_default)
 
-        banner_guide_content.setAdapter { banner, itemView, model, position ->
-            Glide.with(activity!!)
+        dataBinding.bannerGuideContent.setAdapter { banner, itemView, model, position ->
+            Glide.with(getActivity()!!)
                 .load(model)
-                .apply(options);
+                .apply(options)
+                .into(itemView!! as ImageView)
         }
+
+        viewModel.bannerList.observe(this, Observer {
+            dataBinding.bannerGuideContent.setData(it["tips"],it["urls"]);
+        })
     }
+
 }
