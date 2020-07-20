@@ -57,8 +57,8 @@ class MainActivity : AppActivity<ActivityMainBinding, MainViewModel>(), OnBottom
                 StatusBarUtil.setStatusBarColor(this, 0x00FFFFFF)
             }
             4 -> {
-                StatusBarUtil.setRootViewFitsSystemWindows(this, true)
-                StatusBarUtil.setStatusBarColor(this, Color.BLACK)
+                StatusBarUtil.setRootViewFitsSystemWindows(this, false)
+                StatusBarUtil.setStatusBarColor(this, 0x00FFFFFF)
             }
         }
     }

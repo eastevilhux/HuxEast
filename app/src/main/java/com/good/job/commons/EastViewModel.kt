@@ -6,6 +6,7 @@ import com.good.framework.commons.BaseViewModel
 import com.good.framework.entity.VMData
 import com.good.framework.http.HttpConfig
 import com.good.framework.http.entity.Error;
+import com.good.job.manager.AccountManager
 
 abstract open class EastViewModel<VM : VMData>(application: Application) : BaseViewModel(application) {
     var data: MutableLiveData<VM>;
@@ -25,13 +26,6 @@ abstract open class EastViewModel<VM : VMData>(application: Application) : BaseV
 
     abstract fun initVMData() : VM;
 
-    /*suspend fun <T> requestResponse(
-        loading: Loading? = Loading.shortToast(),
-        error: Error? = Error.shortToast(),
-        bloak:suspend() -> Result<T>
-    ):Result<T>{
-
-    }*/
 
     open fun error(code : Int = HttpConfig.CODE_ERROR,msg : String){
         var er = Error();
@@ -42,5 +36,9 @@ abstract open class EastViewModel<VM : VMData>(application: Application) : BaseV
 
     fun postValue(vmData: VM){
         data.value = vmData;
+    }
+
+    fun isLogin() : Boolean{
+        return AccountManager.instance.isLogin();
     }
 }
