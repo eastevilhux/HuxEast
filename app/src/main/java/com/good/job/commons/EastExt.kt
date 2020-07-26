@@ -21,10 +21,10 @@ fun arouteJump(path:String,vararg params:Param,finish : Boolean = false, activit
             postcard.withSerializable(p.key,it);
         }
     }
+    postcard.navigation(activity)
     if(activity != null && finish){
         activity.finish()
     }
-    postcard.navigation(activity)
 }
 
 

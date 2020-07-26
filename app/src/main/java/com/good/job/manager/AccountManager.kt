@@ -1,17 +1,17 @@
 package com.good.job.manager
 
+import com.good.framework.http.entity.User
+
 class AccountManager private constructor(){
+    var user : User? = null;
     companion object{
         val instance : AccountManager by lazy(mode = LazyThreadSafetyMode.SYNCHRONIZED) {
             AccountManager();
         }
-        var iconUrl : String? = null;
-        var userName : String? = null;
-        var sex : Int = 0;
-        var userId : Int = 0;
     }
 
     fun isLogin() : Boolean{
-        return userId > 0;
+        return user != null && user?.id != 0
     }
+
 }

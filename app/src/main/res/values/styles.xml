@@ -2,13 +2,34 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorMainTheme</item>
+        <item name="colorPrimaryDark">@color/colorMainTheme</item>
+        <item name="colorAccent">@color/colorMainTheme</item>
     </style>
 
     <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="InputHaveLineTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/inputHaveLineHeight</item>
+        <item name="haveLine">true</item>
+        <item name="lineColor">@color/colorMainTheme</item>
+        <item name="inputTextColor">@color/colorApp</item>
+        <item name="hintColor">@color/colorHint</item>
+    </style>
+
+
+    <style name="SubmitButtonTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_40</item>
+        <item name="android:layout_marginLeft">30dp</item>
+        <item name="android:layout_marginRight">30dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bg_submit</item>
     </style>
 
 </resources>

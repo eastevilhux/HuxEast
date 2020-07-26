@@ -1,6 +1,5 @@
 package com.good.job.models.main
 
-import android.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentPagerAdapter
 import com.alibaba.android.arouter.facade.annotation.Route
@@ -10,7 +9,7 @@ import com.good.job.R
 import com.good.job.commons.AppActivity
 import com.good.job.commons.Constants
 import com.good.job.databinding.ActivityMainBinding
-import com.good.job.models.main.User.UserFragment
+import com.good.job.models.main.user.UserFragment
 import com.good.job.models.main.auction.AuctionFragment
 import com.good.job.models.main.commodity.CommlistFragment
 import com.good.job.models.main.home.HomeFragment

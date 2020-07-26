@@ -22,11 +22,14 @@ class EastCallAdapter<R>(private val type:Type) : CallAdapter<R, R>{
             Log.d(TAG+"code:",response.code().toString());
             Log.d(TAG+"msg:",response.message());
             if(response.isSuccessful){
-                Log.d(TAG,"sucess");
+                Log.d(TAG,"http reauest sucess");
                 var body = response.body() ?: emptyResponse();
                 val result = body as Result<*>;
-                when(result.code){
-                    HttpConfig.CODE_LOGIN -> loginError();
+                if(result.code != HttpConfig.CODE_SUCCESS){
+                    when(result.code){
+                        HttpConfig.CODE_LOGIN -> loginError()
+                        else->errorResponse(response)
+                    }
                 }
                 return body;
             }else{

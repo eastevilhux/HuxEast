@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorMainTheme">#4BC86E</color>
+
+    <color name="colorSubmitNor">@color/colorMainTheme</color>
+    <color name="colorSubmitSel">#32965A</color>
 </resources>

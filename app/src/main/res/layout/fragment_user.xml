@@ -3,6 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.good.job.models.main.user.UserViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.good.job.models.main.user.UserFragment" />
+    </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/main_content"
@@ -23,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:fitsSystemWindows="true"
                 app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
-                android:background="@drawable/user_center_bg_16_6">
+                android:background="@drawable/user_center_bg_16_6"
+                android:paddingTop="@dimen/dp_15">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -37,7 +47,51 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        android:layout_marginLeft="@dimen/dp_10" />
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:src="@{viewModel.user.icon}"
+                        android:onClick="@{fragment.userInfoClick}"/>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/user_imageview"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="@dimen/dp_10"
+                        android:onClick="@{fragment.userInfoClick}">
+
+
+                        <TextView
+                            android:id="@+id/tv_username"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/AppTextTheme.TitleTextTheme"
+                            android:textColor="@color/colorWhite"
+                            android:text="@{viewModel.isLogin() ? viewModel.user.userName : @string/user_no_login}"/>
+
+
+                        <TextView
+                            android:id="@+id/tv_mobile"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/AppTextTheme"
+                            android:textColor="@color/colorWhite"
+                            android:text="@{viewModel.isLogin() ? viewModel.user.mobile : @string/no_login_info}"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/appArrowImgSize"
+                        android:layout_height="@dimen/appArrowImgSize"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginRight="@dimen/dp_10"
+                        android:src="@drawable/icon_arrow_white"
+                        android:onClick="@{fragment.userInfoClick}"/>
+
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.appbar.CollapsingToolbarLayout>

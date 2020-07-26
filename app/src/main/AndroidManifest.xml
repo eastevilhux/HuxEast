@@ -41,7 +41,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".models.main.MainActivity"/>
+        <activity android:name=".models.main.MainActivity"
+            android:launchMode="singleTask"/>
+        <activity android:name=".models.account.view.LoginActivity"/>
     </application>
 
 </manifest>

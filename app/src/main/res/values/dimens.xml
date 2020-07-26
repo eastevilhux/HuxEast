@@ -2,4 +2,6 @@
 <resources>
     <dimen name="buttonHeight">@dimen/dp_50</dimen>
     <dimen name="homeItemHiehgt">@dimen/dp_60</dimen>
+    <dimen name="inputHaveLineHeight">@dimen/dp_50</dimen>
+    <dimen name="loginElseImageSize">@dimen/dp_50</dimen>
 </resources>

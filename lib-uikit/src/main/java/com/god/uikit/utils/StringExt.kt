@@ -80,10 +80,28 @@ fun String.isEmail() : Boolean{
     return m.matches();
 }
 
-
+fun String.asteriskMobile(haveTrim:Boolean = false,haveLine:Boolean = false) : String{
+    if(!this.isMobile(haveTrim=haveTrim,haveLine = haveLine)){
+        return this;
+    }
+    var temp = this;
+    if(haveTrim){
+        if(this.indexOf(" ") != -1)
+            temp = temp.replace(" ","");
+    }
+    if(haveLine){
+        if(this.indexOf("-") != -1)
+            temp = temp.replace("-","");
+        if(this.indexOf("_") != -1)
+            temp = temp.replace("_","");
+    }
+    var start = temp.substring(0,3);
+    var end = temp.subSequence(temp.length - 4,temp.length);
+    return "${start} **** ${end}";
+}
 
 
 fun main() {
-    var result = "13245678910@qq.123".isEmail();
+    var result = "18896781177".asteriskMobile();
     System.out.println(result);
 }

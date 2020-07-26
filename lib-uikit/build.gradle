@@ -46,5 +46,6 @@ dependencies {
     compile rootProject.ext.dependencies["bga_banner"]
     compile rootProject.ext.dependencies["glide"]
     compile rootProject.ext.dependencies["systembartint"]
+    compile rootProject.ext.dependencies["matisse"]
 }
 

@@ -6,12 +6,16 @@ import androidx.annotation.StringRes
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import com.god.uikit.utils.StatusBarUtil
+import com.god.uikit.widget.TitleLayout
 import com.god.uikit.widget.ViewToast
 import com.good.framework.commons.BaseActivity
 import com.good.framework.http.HttpConfig
+import com.good.framework.http.entity.Error
 import com.good.job.R
+import kotlinx.android.synthetic.main.activity_login.*
 
-abstract class AppActivity<D : ViewDataBinding, V : EastViewModel<*>> : BaseActivity<D, V>(){
+abstract class AppActivity<D : ViewDataBinding, V : EastViewModel<*>> : BaseActivity<D, V>(),
+    TitleLayout.OnTitleListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,9 +38,10 @@ abstract class AppActivity<D : ViewDataBinding, V : EastViewModel<*>> : BaseActi
 
         viewModel?.error?.observe(this, Observer {
             when(it.code){
-                HttpConfig.CODE_NETWORK->showToastLong(R.string.error_network)
-                HttpConfig.CODE_SERVICE_ERROR -> showToastLong(R.string.error_service)
-                else->requestError();
+                HttpConfig.CODE_NETWORK-> showToastShort(R.string.error_network)
+                HttpConfig.CODE_SERVICE_ERROR -> showToastShort(R.string.error_service)
+                -1 -> showToastShort(R.string.error_system)
+                else->requestError(it);
             }
         })
     }
@@ -58,13 +63,21 @@ abstract class AppActivity<D : ViewDataBinding, V : EastViewModel<*>> : BaseActi
         ViewToast.show(this,strRes,Toast.LENGTH_LONG);
     }
 
-    open fun requestError(){
+    open fun requestError(error: Error){
 
     }
 
 
     open fun isImmersion() : Boolean{
         return false;
+    }
+
+    override fun onBack() {
+
+    }
+
+    override fun onMenu() {
+
     }
 
 }

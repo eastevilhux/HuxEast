@@ -7,6 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import com.good.framework.commons.BaseFragment
 import com.good.framework.http.HttpConfig
+import com.good.framework.http.entity.Error
 import com.good.job.R
 
 abstract class AppFragment<D : ViewDataBinding, V : EastViewModel<*>> : BaseFragment<D,V>(){
@@ -25,8 +26,13 @@ abstract class AppFragment<D : ViewDataBinding, V : EastViewModel<*>> : BaseFrag
             when(it.code){
                 HttpConfig.CODE_NETWORK->activity?.showToastLong(R.string.error_network)
                 HttpConfig.CODE_SERVICE_ERROR -> activity?.showToastLong(R.string.error_service)
-                else->activity?.requestError();
+                -1->activity?.showToastShort(R.string.error_system)
+                else->requestError(it);
             }
         })
+    }
+
+    open fun requestError(error: Error){
+
     }
 }

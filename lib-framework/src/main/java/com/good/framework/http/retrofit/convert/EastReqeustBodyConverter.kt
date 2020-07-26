@@ -1,5 +1,7 @@
 package com.good.framework.http.retrofit.convert
 
+import android.annotation.SuppressLint
+import android.util.Log
 import com.good.framework.http.HttpConfig
 import com.google.gson.Gson
 import com.google.gson.TypeAdapter
@@ -13,16 +15,22 @@ class EastReqeustBodyConverter<T>(private val gson:Gson,val adapter: TypeAdapter
 
     companion object{
         private val MEDIA_TYPE: MediaType? = MediaType.parse("application/json; charset=UTF-8");
+        private const val TAG = "EastReqeustBodyConverter==>";
     }
 
 
+    @SuppressLint("LongLogTag")
     override fun convert(value: T): RequestBody {
         val buffer = Buffer();
         val writer = OutputStreamWriter(buffer.outputStream(),HttpConfig.HTTP_CHARSET);
         val jsonWriter = gson.newJsonWriter(writer)
+        var s = value.toString();
+        Log.d(TAG,s);
         adapter.write(jsonWriter, value)
         jsonWriter.close()
-        return RequestBody.create(MEDIA_TYPE, buffer.readByteString());
+        var temp = buffer.readByteString();
+        Log.d(TAG,temp.toString());
+        return RequestBody.create(MEDIA_TYPE, temp);
     }
 
 }
