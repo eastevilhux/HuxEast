@@ -6,6 +6,7 @@ import androidx.annotation.StringRes
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import com.god.uikit.utils.StatusBarUtil
+import com.god.uikit.widget.LoadingDialog
 import com.god.uikit.widget.TitleLayout
 import com.god.uikit.widget.ViewToast
 import com.good.framework.commons.BaseActivity
@@ -16,6 +17,12 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 abstract class AppActivity<D : ViewDataBinding, V : EastViewModel<*>> : BaseActivity<D, V>(),
     TitleLayout.OnTitleListener {
+
+    companion object{
+        const val DEFAULT_CODE = 66;
+    }
+
+    private var loadingDialog : LoadingDialog? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +48,24 @@ abstract class AppActivity<D : ViewDataBinding, V : EastViewModel<*>> : BaseActi
                 HttpConfig.CODE_NETWORK-> showToastShort(R.string.error_network)
                 HttpConfig.CODE_SERVICE_ERROR -> showToastShort(R.string.error_service)
                 -1 -> showToastShort(R.string.error_system)
-                else->requestError(it);
+                else->requestResult(it);
             }
+        })
+
+        viewModel?.loading?.observe(this, Observer {
+            loadingDialog?:let {
+                loadingDialog = LoadingDialog(this);
+            }
+            if(it){
+                if(!loadingDialog!!.isShowing){
+                    loadingDialog!!.show();
+                }
+            }else{
+                if(loadingDialog!!.isShowing){
+                    loadingDialog!!.dismiss();
+                }
+            }
+
         })
     }
 
@@ -61,6 +84,12 @@ abstract class AppActivity<D : ViewDataBinding, V : EastViewModel<*>> : BaseActi
 
     fun showToastLong( strRes:String){
         ViewToast.show(this,strRes,Toast.LENGTH_LONG);
+    }
+
+    open fun requestResult(error:Error){
+        if(error.code != Error.ERROR_DEFAULT){
+            requestError(error);
+        }
     }
 
     open fun requestError(error: Error){

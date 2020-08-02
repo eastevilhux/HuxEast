@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="fragment"
+            type="com.good.job.models.main.home.HomeFragment" />
+    </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/main_content"
@@ -69,7 +74,8 @@
                             android:layout_weight="1"
                             app:imageSize="40"
                             app:iconSrc="@drawable/icon_home_item_inter"
-                            app:itemText="@string/home_item_interrogation"/>
+                            app:itemText="@string/home_item_interrogation"
+                            android:onClick="@{fragment.toInquiry}"/>
 
 
                         <com.god.uikit.widget.TopdownLayout

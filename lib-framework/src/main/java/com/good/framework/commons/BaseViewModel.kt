@@ -37,4 +37,24 @@ abstract class BaseViewModel(application: Application) : AndroidViewModel(applic
         
     }
 
+    open fun onStart(){
+
+    }
+
+    open  fun onResume(){
+
+    }
+
+    open fun onStop(){
+
+    }
+
+    open fun onPause(){
+
+    }
+
+    open fun onRestart(){
+
+    }
+
 }

@@ -18,6 +18,7 @@ class UserFragment : BaseFragment<FragmentUserBinding,UserViewModel>(){
     override fun initView() {
         super.initView()
         dataBinding.fragment = this;
+        dataBinding.viewModel = viewModel;
     }
 
 

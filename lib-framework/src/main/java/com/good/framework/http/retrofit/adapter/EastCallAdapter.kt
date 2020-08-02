@@ -19,17 +19,12 @@ class EastCallAdapter<R>(private val type:Type) : CallAdapter<R, R>{
     override fun adapt(call: Call<R>): R {
         return try {
             var response = call.execute();
-            Log.d(TAG+"code:",response.code().toString());
-            Log.d(TAG+"msg:",response.message());
             if(response.isSuccessful){
-                Log.d(TAG,"http reauest sucess");
+                Log.d(TAG,"sucess");
                 var body = response.body() ?: emptyResponse();
                 val result = body as Result<*>;
-                if(result.code != HttpConfig.CODE_SUCCESS){
-                    when(result.code){
-                        HttpConfig.CODE_LOGIN -> loginError()
-                        else->errorResponse(response)
-                    }
+                when(result.code){
+                    HttpConfig.CODE_LOGIN -> loginError();
                 }
                 return body;
             }else{

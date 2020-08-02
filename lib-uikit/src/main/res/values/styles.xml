@@ -68,4 +68,13 @@
         <item name="android:textColor">@color/colorApp</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="AppEditTheme">
+        <item name="android:textSize">@dimen/sp_13</item>
+        <item name="android:textColor">@color/colorApp</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">@dimen/dp_7</item>
+        <item name="android:textColorHint">@color/colorHint</item>
+        <item name="android:background">@null</item>
+    </style>
 </resources>

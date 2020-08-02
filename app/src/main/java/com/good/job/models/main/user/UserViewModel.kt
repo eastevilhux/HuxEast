@@ -19,9 +19,13 @@ class UserViewModel(application: Application) : EastViewModel<UserData>(applicat
 
     override fun initModel() {
         super.initModel()
+    }
+
+
+    override fun onStart() {
+        super.onStart()
         isLogin.value = accountManager.isLogin();
         user.value = accountManager.user;
     }
-
 
 }

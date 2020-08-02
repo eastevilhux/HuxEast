@@ -22,20 +22,6 @@ class HttpInterceptor : Interceptor{
             .scheme(oldRequest.url().scheme())
             .host(oldRequest.url().host());
 
-        Constants.appKey?.let {
-            commonParamsUrlBuilder.addEncodedQueryParameter("appkey", Constants.appKey);
-        }
-        Constants.serviceType?.let {
-            commonParamsUrlBuilder.addEncodedQueryParameter("keytype",
-                when(Constants.serviceType){
-                    Constants.ServiceType.SERVICE_TYPE_AES -> 2
-                    Constants.ServiceType.SERVICE_TYPE_RSA -> 1
-                }.toString()
-            );
-        }
-        Constants.userid?.let {
-            commonParamsUrlBuilder.addEncodedQueryParameter("userid",Constants.userid);
-        }
         val newRequestBuild = oldRequest.newBuilder()
             .method(oldRequest.method(), oldRequest.body())
             .headers(headers)
@@ -67,7 +53,26 @@ class HttpInterceptor : Interceptor{
     }
 
     private fun addCommonHeader(request: Request): Headers {
-        val builder: Headers.Builder = request.headers().newBuilder()
+        val builder: Headers.Builder = request.headers().newBuilder();
+
+        var keytype : kotlin.String? = null;
+        Constants.serviceType?.let {
+            when(Constants.serviceType){
+                Constants.ServiceType.SERVICE_TYPE_AES->keytype = "2"
+                Constants.ServiceType.SERVICE_TYPE_RSA->keytype = "1"
+            }
+        }
+        var userid = Constants.userid;
+        var appkey =  Constants.appKey;
+        appkey?.let {
+            builder.add("appkey", it);
+        }
+        keytype?.let {
+            builder.add("keytype", it);
+        }
+        userid?.let {
+            builder.add("userid", it);
+        }
         return builder.build()
     }
 }

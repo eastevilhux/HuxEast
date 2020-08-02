@@ -7,4 +7,5 @@ class User {
     var icon : String? = null;
     var sex : Int = 1;
     var mobile : String? = null;
+    var aeskey : String? = null;
 }

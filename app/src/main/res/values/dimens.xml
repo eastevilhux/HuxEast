@@ -3,5 +3,10 @@
     <dimen name="buttonHeight">@dimen/dp_50</dimen>
     <dimen name="homeItemHiehgt">@dimen/dp_60</dimen>
     <dimen name="inputHaveLineHeight">@dimen/dp_50</dimen>
+    <dimen name="inputHeight">@dimen/dp_40</dimen>
     <dimen name="loginElseImageSize">@dimen/dp_50</dimen>
+    <dimen name="sexRadioImageSize">@dimen/dp_20</dimen>
+    <dimen name="appItemHeight">@dimen/dp_40</dimen>
+    <dimen name="switchBtnWidth">@dimen/dp_60</dimen>
+    <dimen name="switchBtnHeight">@dimen/dp_30</dimen>
 </resources>

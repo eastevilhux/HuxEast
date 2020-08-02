@@ -54,4 +54,23 @@ abstract open class BaseFragment<D : ViewDataBinding,V : BaseViewModel> : Fragme
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        viewModel?.onStart();
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel?.onStop();
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel?.onPause();
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel?.onResume();
+    }
 }

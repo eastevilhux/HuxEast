@@ -3,4 +3,5 @@
     <string name="error_network">网络异常,请检查网络状态</string>
     <string name="error_system">发生未知错误,请重试</string>
     <string name="error_service">服务开小差了,请重试</string>
+    <string name="lib_centigrade">℃</string>
 </resources>

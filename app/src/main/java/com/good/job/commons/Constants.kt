@@ -5,5 +5,6 @@ class Constants {
         const val MAIN = "/models/main";
         const val SPLASH = "/models/splash";
         const val LOGIN = "/models/account/view";
+        const val INQUIRY = "/illness/inquiry";
     }
 }

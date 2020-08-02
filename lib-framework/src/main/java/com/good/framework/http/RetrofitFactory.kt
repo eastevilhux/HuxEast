@@ -2,7 +2,9 @@ package com.good.framework.http
 
 import com.good.framework.http.commons.CustomGsonConverterFactory
 import com.good.framework.http.interceptor.HttpInterceptor
+import com.good.framework.http.interceptor.LogInterceptor
 import com.good.framework.http.interceptor.NetInterceptor
+import com.good.framework.http.interceptor.ParamsInterceptor
 import com.good.framework.http.retrofit.adapter.EastCallAdapterFactory
 import com.good.framework.http.retrofit.convert.EastConverterFactory
 import com.good.framework.http.service.BaseService
@@ -26,7 +28,8 @@ class RetrofitFactory private constructor(){
             .readTimeout(HttpConfig.TIME_OUT, TimeUnit.SECONDS)
             .writeTimeout(HttpConfig.TIME_OUT, TimeUnit.SECONDS)
             .addInterceptor(HttpInterceptor())
-            .addNetworkInterceptor(NetInterceptor())
+            .addInterceptor(LogInterceptor())
+            .addNetworkInterceptor(HttpInterceptor())
             .build();
 
         val mRetrofit: Retrofit = Retrofit.Builder()

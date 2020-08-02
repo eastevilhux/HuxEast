@@ -5,7 +5,7 @@ import java.nio.charset.Charset
 object HttpConfig {
     const val CODE_SUCCESS = 66;
     const val CODE_ERROR = -1;
-    const val CODE_LOGIN = -3;
+    const val CODE_LOGIN = -2;
     const val CODE_NETWORK = 404;
     const val CODE_EMPTY = 44;
     const val CODE_SERVICE_ERROR = -4;
@@ -17,9 +17,9 @@ object HttpConfig {
     const val MAX_AGE = 60
 
     //请求服务器地址URL
-    const val SERVICE_URL = "http://192.168.0.100:8080/lifehouse/"
+    const val SERVICE_URL = "http://192.168.0.101:8080/lifehouse/"
 
     //请求Token地址URL
-    const val TOKEN_URL = "http://192.168.0.100:8080/token"
+    const val TOKEN_URL = "http://192.168.0.101:8080/token"
 
 }

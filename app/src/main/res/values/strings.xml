@@ -25,4 +25,18 @@
     <string name="enter_login">确定登录</string>
     <string name="please_input_account">请输入用户名</string>
     <string name="please_input_loginpsd">请输入正确的登录密码</string>
+    <string name="title_inquiry">健康咨询</string>
+    <string name="select_image">选择病情图片</string>
+    <string name="illness_image">病情图片</string>
+    <string name="hint_illnessinfo">请简要描述您的病情信息,便于医生更好的了解和诊断</string>
+    <string name="sex_boy">男</string>
+    <string name="sex_girl">女</string>
+    <string name="illness_sex">您的性别</string>
+    <string name="illness_start_time">起病时间</string>
+    <string name="select_illness_startime">请选择起病时间</string>
+    <string name="hint_illness_title">请简要描述病情信息</string>
+    <string name="illness_havegenecinfo">是否有遗传史</string>
+    <string name="hint_illness_genceinfo">遗传史说明</string>
+    <string name="illness_centigrade">当前体温</string>
+    <string name="hint_illness_centigrade">请输入当前体温</string>
 </resources>

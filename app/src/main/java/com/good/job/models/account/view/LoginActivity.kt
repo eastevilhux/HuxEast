@@ -1,7 +1,9 @@
 package com.good.job.models.account.view
 
 import android.view.View
+import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.good.framework.entity.VMData
 import com.good.framework.http.entity.Error
 import com.good.job.R
 import com.good.job.commons.AppActivity
@@ -19,6 +21,15 @@ class LoginActivity : AppActivity<ActivityLoginBinding, LoginViewModel>() {
     override fun initView() {
         dataBinding?.titleLayout?.onTitleListener = this;
         dataBinding?.loginac = this;
+
+        viewModel?.data?.observe(this, Observer {
+            when(it.code){
+                VMData.Code.CODE_SUCCESS->{
+                    setResult(DEFAULT_CODE);
+                    finish();
+                }
+            }
+        })
     }
 
     fun login(view : View){
@@ -32,7 +43,7 @@ class LoginActivity : AppActivity<ActivityLoginBinding, LoginViewModel>() {
             showToastShort(R.string.please_input_loginpsd)
             return;
         }
-        viewModel?.login(account,password);
+        viewModel?.login(account,password,isLoading = true);
     }
 
     override fun onMenu() {
@@ -41,5 +52,6 @@ class LoginActivity : AppActivity<ActivityLoginBinding, LoginViewModel>() {
 
     override fun requestError(error: Error) {
         super.requestError(error)
+        showToastShort(error.msg?:getString(R.string.error_system));
     }
 }

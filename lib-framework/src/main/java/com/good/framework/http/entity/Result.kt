@@ -4,7 +4,7 @@ import com.good.framework.http.HttpConfig
 
 class Result<T>(var data:T? = null){
     var code = 0;
-    var tag = null;
+    var tag : String? = null;
     var msg : String? = null;
     var encryption : Boolean = false;
     var state : Boolean = false;

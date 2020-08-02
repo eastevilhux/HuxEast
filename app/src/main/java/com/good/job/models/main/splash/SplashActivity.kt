@@ -7,6 +7,7 @@ import com.good.framework.commons.BaseActivity
 import com.good.framework.entity.VMData
 import com.good.job.R
 import com.good.job.commons.AppActivity
+import com.good.job.commons.BaseArouter
 import com.good.job.commons.Constants
 import com.good.job.commons.arouteJump
 import com.good.job.databinding.ActivitySplashBinding
@@ -31,7 +32,12 @@ class SplashActivity : AppActivity<ActivitySplashBinding, SplashViewModel>() {
 
         viewModel?.data?.observe(this, Observer {
             when(it.requestCode){
-                SplashData.CODE_JUMP_MAIN -> arouteJump(Constants.MAIN,finish = true,activity = this);
+                SplashData.CODE_JUMP_MAIN -> {
+                    BaseArouter.Builder(Constants.MAIN,this)
+                        .isFinish(true)
+                        .builder()
+                        .start();
+                }
             }
         })
     }

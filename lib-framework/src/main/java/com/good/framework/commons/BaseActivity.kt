@@ -31,4 +31,28 @@ abstract class BaseActivity<D : ViewDataBinding,V : BaseViewModel> : AppCompatAc
 
     abstract fun initView();
 
+    override fun onStart() {
+        super.onStart()
+        viewModel?.onStart();
+    }
+
+    override fun onStop() {
+        super.onStop()
+        viewModel?.onStop();
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        viewModel?.onRestart();
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel?.onResume();
+    }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel?.onPause();
+    }
 }

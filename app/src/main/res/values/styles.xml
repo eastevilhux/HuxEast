@@ -20,6 +20,14 @@
         <item name="hintColor">@color/colorHint</item>
     </style>
 
+    <style name="InputSelectTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/inputHeight</item>
+        <item name="haveLine">false</item>
+        <item name="inputTextColor">@color/colorApp</item>
+        <item name="hintColor">@color/colorHint</item>
+    </style>
+
 
     <style name="SubmitButtonTheme">
         <item name="android:layout_width">match_parent</item>
@@ -32,4 +40,26 @@
         <item name="android:background">@drawable/bg_submit</item>
     </style>
 
+    <style name="TitleTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/appTitleHeight</item>
+        <item name="android:background">@color/colorMainTheme</item>
+        <item name="title_color">@color/colorWhite</item>
+    </style>
+
+    <style name="HookRadioTheme">
+        <item name="android:textSize">@dimen/sp_13</item>
+        <item name="android:textColor">@color/colorApp</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/radio_hook</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="SelectLayoutTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/inputHeight</item>
+        <item name="haveArrow">true</item>
+        <item name="arrow_image">@drawable/icon_arrow_green</item>
+        <item name="itemTextColor">@color/colorInfo</item>
+    </style>
 </resources>

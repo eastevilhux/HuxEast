@@ -4,8 +4,7 @@ import com.good.framework.entity.KeySet
 import com.good.framework.http.entity.Event
 import com.good.framework.http.entity.Result
 import com.good.framework.http.entity.User
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 
 interface BaseService {
@@ -39,15 +38,11 @@ interface BaseService {
     @POST("event/homebanner")
     fun appBannerList(@Query("apptype") apptype : Int) : Result<List<Event>>;
 
-    /**
-     * 登录接口
-     * @author hux
-     * @param account
-     *      用户名
-     * @param password
-     *      登录密码
-     * @since 1.0.0
-     */
+    @JvmSuppressWildcards
+    @FormUrlEncoded
     @POST("user/userlogin")
-    fun login(@Query("account") account : String,@Query("password") password : String) : Result<User>;
+    fun userLogin(@Field("account") account:String,@Field("password") password : String) : Result<User>;
+
+    @POST("user/cacheuserinfo")
+    fun cacheUser() : Result<User>;
 }

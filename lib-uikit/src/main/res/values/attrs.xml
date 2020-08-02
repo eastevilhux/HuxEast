@@ -199,4 +199,13 @@
         <attr name="icon_width" format="dimension"/>
         <attr name="icon_height" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="EastEditText">
+        <attr name="android:gravity"/>
+        <attr name="maxNumber" format="integer"/>
+        <attr name="android:textSize"/>
+        <attr name="android:minHeight"/>
+        <attr name="hintText"/>
+        <attr name="hintTextColor" format="color"/>
+    </declare-styleable>
 </resources>

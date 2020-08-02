@@ -4,12 +4,10 @@
 
 
     <uses-feature android:name="android.hardware.camera" /> <!-- 网络权限 -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- 接收短信权限 -->
     <uses-permission android:name="android.permission.READ_PROFILE" /> <!-- 读取程序信息  imei -->
     <uses-permission android:name="android.permission.INTERNET" /> <!-- gsm网络相关信息 -->
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <uses-permission android:name="android.permission.READ0_PHONE_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 联系人权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -19,11 +17,8 @@
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -33,7 +28,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:name=".commons.EastApplication">
+        android:name=".commons.EastApplication"
+        android:networkSecurityConfig="@xml/network">
         <activity android:name=".models.main.splash.SplashActivity"
             android:theme="@style/FullScreenTheme">
             <intent-filter>
@@ -44,6 +40,8 @@
         <activity android:name=".models.main.MainActivity"
             android:launchMode="singleTask"/>
         <activity android:name=".models.account.view.LoginActivity"/>
+        <activity android:name=".models.main.illness.inquiry.InquiryActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
     </application>
 
 </manifest>

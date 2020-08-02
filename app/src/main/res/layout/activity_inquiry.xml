@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <import type="com.good.job.models.main.illness.inquiry.InquiryViewModel"/>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="InquiryViewModel" />
+        <variable
+            name="haveGenecinfo"
+            type="androidx.databinding.ObservableField&lt;Boolean&gt;" />
+        <variable
+            name="inquiryac"
+            type="com.good.job.models.main.illness.inquiry.InquiryActivity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.god.uikit.widget.TitleLayout
+            android:id="@+id/title_layout"
+            style="@style/TitleTheme"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:titleText="@string/title_inquiry"/>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/title_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.god.uikit.widget.SelectitemLayout
+                    android:id="@+id/sl_illnessimage"
+                    style="@style/InputSelectTheme"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:itemText="@string/illness_image"
+                    app:contentText="@string/select_image"
+                    app:haveArrow="true"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:background="@color/colorWhite"/>
+
+                <com.god.uikit.widget.EastEditText
+                    android:id="@+id/eet_title"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_50"
+                    app:maxNumber="120"
+                    app:layout_constraintTop_toBottomOf="@id/sl_illnessimage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:hintText="@string/hint_illness_title"
+                    app:hintTextColor="@color/colorHint"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="@dimen/dp_10"/>
+
+                <com.god.uikit.widget.EastEditText
+                    android:id="@+id/eet_illnessinfo"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_120"
+                    app:layout_constraintTop_toBottomOf="@id/eet_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:maxNumber="500"
+                    app:hintText="@string/hint_illnessinfo"
+                    app:hintTextColor="@color/colorHint"
+                    android:background="@color/colorWhite"
+                    android:layout_marginTop="@dimen/dp_1"/>
+
+                <LinearLayout
+                    android:id="@+id/ll_sex"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/inputHeight"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/eet_illnessinfo"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dp_1">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        style="@style/AppTextTheme"
+                        android:layout_weight="1"
+                        android:text="@string/illness_sex"
+                        android:gravity="left|center_vertical"
+                        android:paddingLeft="@dimen/dp_10"
+                        android:textColor="@color/colorInfo"/>
+
+                    <RadioGroup
+                        android:id="@+id/rg_sex"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/rb_girl"
+                            android:layout_width="@dimen/sexRadioImageSize"
+                            android:layout_height="@dimen/sexRadioImageSize"
+                            style="@style/HookRadioTheme"
+                            android:gravity="left|center_vertical"
+                            android:checked="@{viewModel.sex == InquiryViewModel.SEX_GIRL ? true : false}"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            style="@style/AppTextTheme"
+                            android:text="@string/sex_girl"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:gravity="left|center_vertical"/>
+
+                        <RadioButton
+                            android:id="@+id/rb_boy"
+                            android:layout_width="@dimen/sexRadioImageSize"
+                            android:layout_height="@dimen/sexRadioImageSize"
+                            style="@style/HookRadioTheme"
+                            android:gravity="left|center_vertical"
+                            android:checked="@{viewModel.sex == InquiryViewModel.SEX_BOY ? true : false}"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            style="@style/AppTextTheme"
+                            android:text="@string/sex_boy"
+                            android:paddingLeft="@dimen/dp_10"
+                            android:gravity="left|center_vertical"/>
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <com.god.uikit.widget.SelectitemLayout
+                    android:id="@+id/sl_starttime"
+                    style="@style/SelectLayoutTheme"
+                    app:layout_constraintTop_toBottomOf="@id/ll_sex"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:itemText="@string/illness_start_time"
+                    app:contentText="@string/select_illness_startime"
+                    android:layout_marginTop="@dimen/dp_10"
+                    app:haveItem="true"
+                    android:background="@color/colorWhite"/>
+
+
+
+                <LinearLayout
+                    android:id="@+id/ll_ishavegenecinfo"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/appItemHeight"
+                    app:layout_constraintTop_toBottomOf="@id/sl_starttime"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/colorWhite"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dp_1">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        style="@style/AppTextTheme"
+                        android:layout_weight="1"
+                        android:text="@string/illness_havegenecinfo"
+                        android:paddingLeft="@dimen/dp_5"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="3"
+                        android:paddingRight="@dimen/dp_10"
+                        android:gravity="right|center_vertical">
+
+                        <Button
+                            android:id="@+id/btn_havegenecinfo"
+                            android:layout_width="@dimen/switchBtnWidth"
+                            android:layout_height="@dimen/switchBtnHeight"
+                            android:onClick="@{inquiryac.onViewClick}"
+                            android:background="@{viewModel.haveGenecinfo ? @drawable/icon_btn_open : @drawable/icon_btn_close}"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <com.god.uikit.widget.EastEditText
+                    android:id="@+id/eet_genecinfo"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_80"
+                    app:layout_constraintTop_toBottomOf="@id/ll_ishavegenecinfo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:background="@color/colorWhite"
+                    app:maxNumber="180"
+                    android:layout_marginTop="@dimen/dp_1"
+                    android:visibility="@{viewModel.haveGenecinfo ? View.VISIBLE : View.GONE}"/>
+
+
+                <com.god.uikit.widget.InputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/appItemHeight"
+                    app:layout_constraintTop_toBottomOf="@id/eet_genecinfo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    style="@style/InputSelectTheme"
+                    app:haveLine="false"
+                    app:haveMenu="true"
+                    app:menuTextColor="@color/colorApp"
+                    app:menuBackground="@color/colorWhite"
+                    app:itemMenuText="@string/lib_centigrade"
+                    app:itemText="@string/illness_centigrade"
+                    app:hintText="@string/hint_illness_centigrade"
+                    app:inputType="mobile" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

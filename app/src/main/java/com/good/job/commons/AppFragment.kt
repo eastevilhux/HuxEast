@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
+import com.good.framework.commons.BaseActivity
 import com.good.framework.commons.BaseFragment
 import com.good.framework.http.HttpConfig
 import com.good.framework.http.entity.Error
@@ -34,5 +35,9 @@ abstract class AppFragment<D : ViewDataBinding, V : EastViewModel<*>> : BaseFrag
 
     open fun requestError(error: Error){
 
+    }
+
+    fun getAppActivity() : BaseActivity<*, *> {
+        return getActivity() as BaseActivity<*, *>;
     }
 }
